@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "contractId": "coveragefit-meaningful-signal-surface-v1",
+  "build": "CF-PVX-INSIGHT-1.0",
+  "topicCount": {
+    "source": "validated advisoryReviewTopics",
+    "maximum": 3,
+    "deduplicateBy": "topicKey",
+    "numberingMeaning": "scan_order_only"
+  },
+  "allowedDeltaStates": [
+    "added",
+    "confirmed",
+    "changed",
+    "resolved",
+    "still_needed",
+    "removed_due_to_stale_evidence"
+  ],
+  "prohibitedSignals": [
+    "fake_activity",
+    "popularity",
+    "trending",
+    "scarcity",
+    "countdown",
+    "severity_from_discovery",
+    "policy_deficiency_without_policy_evidence",
+    "eligibility_from_quote_readiness"
+  ],
+  "semanticBoundaries": {
+    "topicIsRecommendation": false,
+    "topicResponseIsRecommendationResponse": false,
+    "discoveryAffectsProtectionScore": false,
+    "savingIsContactPermission": false,
+    "continuingIsSaving": false
+  }
+}

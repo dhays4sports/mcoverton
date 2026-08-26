@@ -1,0 +1,10 @@
+{
+  "sprint": "CF-PVX-INSIGHT-1.4",
+  "version": "3.20.156",
+  "release": "14",
+  "pass": true,
+  "focusedQa": "CF_PVX_INSIGHT_1_4_QA.mjs",
+  "stdout": "CF-PVX-INSIGHT-1.4 QA: PASS",
+  "protectedHashesUnchanged": true,
+  "generatedAt": "2026-08-22T00:02:53.875Z"
+}

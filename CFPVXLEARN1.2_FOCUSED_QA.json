@@ -1,0 +1,10 @@
+{
+  "sprint": "CF-PVX-LEARN-1.2",
+  "version": "3.20.171",
+  "release": "17",
+  "pass": true,
+  "focusedQa": "CF_PVX_LEARN_1_2_QA.mjs",
+  "stdout": "CF-PVX-LEARN-1.2 QA: PASS",
+  "protectedHashesUnchanged": true,
+  "generatedAt": "2026-08-22T00:59:48.627Z"
+}
