@@ -1,0 +1,10 @@
+{
+  "version": "3.20.200",
+  "program": "CF-DISP",
+  "finalSprint": "CF-DISP-5.2",
+  "build": "CF-DISP-5.2",
+  "baselineVersion": "3.20.200",
+  "baselineSha256": "cefd2d7b52bdc2a818941e981b9e867e08b1a14ccee17cd69d4a782eb2c7ba13",
+  "completedAt": "2026-08-24",
+  "releaseOverlay": "CF-DISP-5.2"
+}

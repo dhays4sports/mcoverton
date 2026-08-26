@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-ADV-1.18",
+  "version": "3.20.119",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-ADV-1.18\",\n  \"pass\": true,\n  \"checks\": 20,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-progressive-guardrails.js exists\",\n    \"CF_ADV_1_18_GUARDRAILS_CONTRACT.json exists\",\n    \"assets/js/pvx-progressive-guardrails.js includes underinsured\",\n    \"assets/js/pvx-progressive-guardrails.js includes carrier eligible\",\n    \"assets/js/pvx-progressive-guardrails.js includes underwriting approved\",\n    \"assets/js/pvx-progressive-guardrails.js includes recommendation_authority_required\",\n    \"assets/js/pvx-progressive-guardrails.js includes Worth reviewing\",\n    \"assets/js/pvx-progressive-guardrails.js includes Producer review needed\",\n    \"assets/js/pvx-progressive-guardrails.js includes Dylan’s recommendation\",\n    \"assets/js/pvx-progressive-guardrails.js includes failClosed\",\n    \"progressive guardrails identity matches\",\n    \"truthful discovery-only Snapshot passes\",\n    \"Snapshot deficiency claim fails closed\",\n    \"readiness eligibility and rate claims fail\",\n    \"evidence-backed authorized recommendation passes\",\n    \"missing evidence and authority fail recommendation\",\n    \"fear-based producer prompt fails\",\n    \"safe labels match semantic stage\",\n    \"contract fails closed across four surfaces\"\n  ]\n}"
+}

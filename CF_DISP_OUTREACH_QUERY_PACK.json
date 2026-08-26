@@ -1,0 +1,16 @@
+{
+  "build": "CF-DISP-DISCOVERY-1.0",
+  "mode": "automatic_public_web_plus_manual_closed_platform_capture",
+  "queriesPerSweep": 8,
+  "queries": [
+    {"id":"reddit-safeco-liberty","channel":"reddit","kind":"discussion","freshness":"pw","query":"site:reddit.com (\"Safeco\" OR \"Liberty Mutual\") (nonrenewal OR \"not renewing\" OR dropped) California insurance"},
+    {"id":"reddit-home-nonrenewal","channel":"reddit","kind":"discussion","freshness":"pw","query":"site:reddit.com \"home insurance\" (nonrenewal OR \"not renewing\" OR \"dropped\") California"},
+    {"id":"reddit-condo-nonrenewal","channel":"reddit","kind":"discussion","freshness":"pm","query":"site:reddit.com condo insurance (nonrenewal OR \"not renewing\" OR dropped) California"},
+    {"id":"nextdoor-indexed","channel":"nextdoor","kind":"discussion","freshness":"pm","query":"site:nextdoor.com (\"Safeco\" OR \"Liberty Mutual\" OR \"home insurance\") (nonrenewal OR dropped OR \"not renewing\") California"},
+    {"id":"facebook-indexed","channel":"facebook","kind":"discussion","freshness":"pm","query":"site:facebook.com/groups (\"Safeco\" OR \"Liberty Mutual\" OR \"home insurance\") (nonrenewal OR dropped OR \"not renewing\") California"},
+    {"id":"public-web-displacement","channel":"public_web","kind":"discussion","freshness":"pw","query":"(\"Safeco\" OR \"Liberty Mutual\") (nonrenewal OR \"not renewing\") California homeowners insurance"},
+    {"id":"south-bay-hoa-management","channel":"property_manager","kind":"relationship","freshness":"all","maxAdds":3,"query":"(\"HOA management\" OR \"community association management\" OR \"condo property management\") (\"San Jose\" OR \"Santa Clara County\") California"},
+    {"id":"south-bay-condo-realtors","channel":"realtor","kind":"relationship","freshness":"all","maxAdds":3,"query":"(\"condo realtor\" OR \"condominium realtor\") (\"San Jose\" OR \"Santa Clara\") California"}
+  ],
+  "rules": {"autoDiscovery":true,"autoScrapingOfClosedPlatforms":false,"autoPosting":false,"humanReview":true,"automaticPaidAI":false}
+}

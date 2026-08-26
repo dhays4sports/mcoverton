@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-ADV-1.20",
+  "version": "3.20.121",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-ADV-1.20\",\n  \"pass\": true,\n  \"checks\": 16,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-client-snapshot-final.js exists\",\n    \"CF_ADV_1_20_CLIENT_REPORT_CONTRACT.json exists\",\n    \"assets/js/pvx-client-snapshot-final.js includes Producer verification is required\",\n    \"assets/js/pvx-client-snapshot-final.js includes Only actual recommendations\",\n    \"assets/js/pvx-client-snapshot-final.js includes Your CoverageFit Review\",\n    \"assets/js/pvx-client-snapshot-final.js includes internalNote,producerNotes\",\n    \"assets/js/pvx-client-snapshot-final.js includes Coverage is not bound\",\n    \"assets/js/pvx-client-snapshot-final.js includes revision:'Final'\",\n    \"Client Snapshot 2 identity matches\",\n    \"unverified producer cannot finalize\",\n    \"Final revision is appended without replacing history\",\n    \"only customer-safe recommendation fields remain\",\n    \"customer-visible quote summary is bounded\",\n    \"final report explicitly avoids binding implication\",\n    \"contract excludes internal and underwriting notes\"\n  ]\n}"
+}

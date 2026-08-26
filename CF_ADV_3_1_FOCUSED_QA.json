@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-ADV-3.1",
+  "version": "3.20.126",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-ADV-3.1\",\n  \"pass\": true,\n  \"checks\": 14,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"tests/pvx-semantic-truthfulness-audit.mjs exists\",\n    \"CF_ADV_3_1_SEMANTIC_AUDIT.md exists\",\n    \"CF_ADV_3_1_SEMANTIC_AUDIT.json exists\",\n    \"CF_ADV_3_1_SEMANTIC_AUDIT.md includes PASS\",\n    \"CF_ADV_3_1_SEMANTIC_AUDIT.md includes review topic vs recommendation\",\n    \"CF_ADV_3_1_SEMANTIC_AUDIT.md includes reported vs verified fact\",\n    \"CF_ADV_3_1_SEMANTIC_AUDIT.md includes quote readiness vs eligibility\",\n    \"CF_ADV_3_1_SEMANTIC_AUDIT.md includes decision vs authorization\",\n    \"CF_ADV_3_1_SEMANTIC_AUDIT.md includes no policy finding\",\n    \"semantic truthfulness audit passes: {\\n  \\\"audit\\\": \\\"CF-ADV-3.1\\\",\\n  \\\"pass\\\": true,\\n  \\\"checks\\\": 7,\\n  \\\"details\\\": [\\n    \\\"review topic is not recommendation\\\",\\n    \\\"topic response is not recommendation response\\\",\\n    \\\"reported fact is not verified\\\",\\n    \\\"quote readiness is not eligibility\\\",\\n    \\\"recommendation is not final decision\\\",\\n    \\\"decision is not authorization\\\",\\n    \\\"early Snapshot implies no policy deficiency\\\"\\n  ]\\n}\\n\",\n    \"six semantic boundaries are certified\",\n    \"early Snapshot never implies deficiency\",\n    \"missing evidence fails closed\"\n  ]\n}"
+}

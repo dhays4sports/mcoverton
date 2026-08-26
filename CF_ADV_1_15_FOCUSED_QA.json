@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-ADV-1.15",
+  "version": "3.20.116",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-ADV-1.15\",\n  \"pass\": true,\n  \"checks\": 14,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-evidence-aware-copilot.js exists\",\n    \"CF_ADV_1_15_COPILOT_CONTRACT.json exists\",\n    \"assets/js/pvx-evidence-aware-copilot.js includes Discussion topic · Not a recommendation\",\n    \"assets/js/pvx-evidence-aware-copilot.js includes Dylan’s recommendation\",\n    \"assets/js/pvx-evidence-aware-copilot.js includes discuss_and_verify\",\n    \"assets/js/pvx-evidence-aware-copilot.js includes recommend_and_ask\",\n    \"assets/js/pvx-evidence-aware-copilot.js includes missingEvidenceCanCreateRecommendation:false\",\n    \"evidence-aware Copilot identity matches\",\n    \"early topic is visibly discussion only\",\n    \"actual recommendation has separate lane\",\n    \"no recommendation keeps verification mode\",\n    \"all semantic guardrails fail closed\",\n    \"contract preserves conversation principle\"\n  ]\n}"
+}

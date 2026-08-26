@@ -1,0 +1,25 @@
+import assert from 'node:assert/strict';
+import {DISCOVERY_QUERY_PACK,runDiscoveryCycle,getDiscoveryStatus,handleOutreachDiscovery,DEFAULT_MONTHLY_REQUEST_LIMIT} from './server/displacement-discovery-core.mjs';
+import {OUTREACH_PREFIX} from './server/displacement-outreach-core.mjs';
+
+class Store{constructor(){this.m=new Map()}async get(k){return this.m.get(k)||null}async setJSON(k,v){this.m.set(k,JSON.parse(JSON.stringify(v)))}async list({prefix='',limit=500}){return{blobs:[...this.m.keys()].filter(k=>k.startsWith(prefix)).slice(0,limit).map(key=>({key}))}}}
+const TOKEN='producer-access-key-1234567890-abcdef';
+const baseEnv={COVERAGEFIT_PRODUCER_ACCESS_TOKEN:TOKEN,BRAVE_SEARCH_API_KEY:'brave-test-key',COVERAGEFIT_DISCOVERY_QUERIES_PER_SWEEP:'1',COVERAGEFIT_DISCOVERY_MONTHLY_REQUEST_LIMIT:'900'};
+const request=(method='GET',body=null,token=TOKEN,origin='https://coveragefit.com')=>new Request('https://coveragefit.com/api/outreach/discovery',{method,headers:{Authorization:`Bearer ${token}`,Origin:origin,...(body?{'Content-Type':'application/json'}:{})},body:body?JSON.stringify(body):undefined});
+let pass=0;const test=async(name,fn)=>{await fn();pass++;console.log('PASS',name)};
+const bravePayload={web:{results:[
+  {title:'Safeco nonrenewal for California condo',url:'https://www.reddit.com/r/Insurance/comments/abc123/example/?utm_source=test',description:'Safeco sent us a nonrenewal for our condo in California. Anyone know who is writing condos?'},
+  {title:'Safeco login help',url:'https://example.com/login',description:'Safeco customer service login pay bill phone number'},
+  {title:'Unrelated cooking page',url:'https://example.com/cooking',description:'Pasta recipe for dinner'}
+]}};
+const fakeFetch=async()=>Response.json(bravePayload);
+
+await test('query pack fits low-cost eight-query sweep',()=>{assert.equal(DISCOVERY_QUERY_PACK.length,8);assert.equal(DISCOVERY_QUERY_PACK.filter(q=>q.kind==='discussion').length,6);assert.equal(DEFAULT_MONTHLY_REQUEST_LIMIT,900)});
+await test('automatic sweep adds only useful indexed discussion',async()=>{const store=new Store();const result=await runDiscoveryCycle({env:baseEnv,store,fetchFn:fakeFetch,mode:'test',now:new Date('2026-08-24T20:00:00Z')});assert.equal(result.ok,true);assert.equal(result.apiRequests,1);assert.equal(result.added,1);assert.equal(result.filtered,2);const listed=await store.list({prefix:OUTREACH_PREFIX});assert.equal(listed.blobs.length,1);const record=await store.get(listed.blobs[0].key);assert.equal(record.discovery.mode,'automatic');assert.equal(record.discovery.publicIndexedOnly,true);assert.equal(record.channel,'reddit');assert.equal(record.privacy.autoPosting,false);assert.equal(record.privacy.humanApprovalRequired,true);assert.match(record.coverageFitUrl,/utm_source=reddit/)});
+await test('same canonical URL is deduplicated across sweeps',async()=>{const store=new Store();await runDiscoveryCycle({env:baseEnv,store,fetchFn:fakeFetch,mode:'test',now:new Date('2026-08-24T20:00:00Z')});const second=await runDiscoveryCycle({env:baseEnv,store,fetchFn:fakeFetch,mode:'test',now:new Date('2026-08-24T21:00:00Z')});assert.equal(second.added,0);assert.ok(second.duplicates>=1);const listed=await store.list({prefix:OUTREACH_PREFIX});assert.equal(listed.blobs.length,1)});
+await test('monthly budget governor stops before another API request',async()=>{const store=new Store();await store.setJSON('outreach/discovery/usage/2026-08',{month:'2026-08',requests:900,limit:900});let calls=0;const result=await runDiscoveryCycle({env:baseEnv,store,fetchFn:async()=>{calls++;return Response.json(bravePayload)},mode:'test',now:new Date('2026-08-24T22:00:00Z')});assert.equal(result.budgetStopped,true);assert.equal(result.apiRequests,0);assert.equal(calls,0)});
+await test('status exposes usage but no secret',async()=>{const store=new Store();const status=await getDiscoveryStatus({env:baseEnv,store,now:new Date('2026-08-24T22:00:00Z')});assert.equal(status.configured,true);assert.equal(status.usage.limit,900);assert.equal(status.schedule.publicIndexedOnly,true);assert.equal(JSON.stringify(status).includes('brave-test-key'),false)});
+await test('manual discovery endpoint requires producer auth',async()=>{const r=await handleOutreachDiscovery(request('GET',null,'wrong-token-xxxxxxxxxxxxxxxxxxxxx'),{env:baseEnv,store:new Store(),fetchFn:fakeFetch});assert.equal(r.status,401)});
+await test('manual discovery endpoint rejects cross-origin run',async()=>{const r=await handleOutreachDiscovery(request('POST',{},TOKEN,'https://evil.example'),{env:baseEnv,store:new Store(),fetchFn:fakeFetch});assert.equal(r.status,403)});
+await test('manual discovery endpoint reports missing Brave key safely',async()=>{const r=await handleOutreachDiscovery(request('POST',{}),{env:{COVERAGEFIT_PRODUCER_ACCESS_TOKEN:TOKEN},store:new Store(),fetchFn:fakeFetch});assert.equal(r.status,503);const b=await r.json();assert.equal(b.error.code,'brave_not_configured')});
+console.log(`\n${pass}/8 discovery QA checks passed`);

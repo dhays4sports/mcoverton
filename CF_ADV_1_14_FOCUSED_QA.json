@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-ADV-1.14",
+  "version": "3.20.115",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-ADV-1.14\",\n  \"pass\": true,\n  \"checks\": 17,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-what-i-learned.js exists\",\n    \"CF_ADV_1_14_LEARNED_CONTRACT.json exists\",\n    \"assets/js/pvx-what-i-learned.js includes exactCustomerWords\",\n    \"assets/js/pvx-what-i-learned.js includes earlyReactions\",\n    \"assets/js/pvx-what-i-learned.js includes quoteReadiness\",\n    \"assets/js/pvx-what-i-learned.js includes policyReview\",\n    \"assets/js/pvx-what-i-learned.js includes recommendationResponses\",\n    \"assets/js/pvx-what-i-learned.js includes latestReportRevision\",\n    \"assets/js/pvx-what-i-learned.js includes earlyTopicIsRecommendation:false\",\n    \"What I Learned identity matches\",\n    \"discovery and exact customer words are preserved\",\n    \"early and actual reactions remain separate arrays\",\n    \"Home and policy status coexist\",\n    \"latest report and next action are path aware\",\n    \"semantic boundaries all fail closed\",\n    \"contract combines all nine required inputs\"\n  ]\n}"
+}

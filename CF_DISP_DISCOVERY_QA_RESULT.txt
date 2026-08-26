@@ -1,0 +1,3 @@
+CF-DISP-DISCOVERY-1.0 focused QA: 8/8 PASS
+CF-DISP-OUTREACH-1.1 focused QA: 10/10 PASS
+Normalized regression: 308 total / 211 pass / 97 inherited fail / 0 new fail

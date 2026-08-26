@@ -1,0 +1,1 @@
+{"id":"coveragefit-progressive-advisory-guardrails-v2","sprint":"CF-ADV-1.18","surfaces":["snapshot","quote_readiness","recommendation","producer_prompt"],"snapshotPolicyDeficiencyClaim":false,"readinessEligibilityClaim":false,"recommendationRequiresEvidenceAndAuthority":true,"fearLanguage":false,"missingEvidenceFailsClosed":true}

@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-ADV-1.17",
+  "version": "3.20.118",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-ADV-1.17\",\n  \"pass\": true,\n  \"checks\": 15,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-live-notes.js exists\",\n    \"CF_ADV_1_17_NOTES_CONTRACT.json exists\",\n    \"assets/js/pvx-live-notes.js includes exact_customer_wording\",\n    \"assets/js/pvx-live-notes.js includes pre_call_topic_reaction\",\n    \"assets/js/pvx-live-notes.js includes producer_live_note\",\n    \"assets/js/pvx-live-notes.js includes immutable:true\",\n    \"assets/js/pvx-live-notes.js includes customerVisible:false\",\n    \"live notes identity matches\",\n    \"customer wording remains exact and immutable\",\n    \"pre-call reaction remains separate record type\",\n    \"producer note is sanitized and anchored\",\n    \"adding producer note does not change pre-call records\",\n    \"producer note remains internal\",\n    \"contract keeps notes outside evidence\"\n  ]\n}"
+}

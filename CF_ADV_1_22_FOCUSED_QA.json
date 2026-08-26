@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-ADV-1.22",
+  "version": "3.20.123",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-ADV-1.22\",\n  \"pass\": true,\n  \"checks\": 20,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-value-learning-loop.js exists\",\n    \"CF_ADV_1_22_LEARNING_CONTRACT.json exists\",\n    \"assets/js/pvx-value-learning-loop.js includes snapshot_saved\",\n    \"assets/js/pvx-value-learning-loop.js includes home_profile_started\",\n    \"assets/js/pvx-value-learning-loop.js includes contact_connected\",\n    \"assets/js/pvx-value-learning-loop.js includes policy_review_ready\",\n    \"assets/js/pvx-value-learning-loop.js includes quote_started\",\n    \"assets/js/pvx-value-learning-loop.js includes quote_delivered\",\n    \"assets/js/pvx-value-learning-loop.js includes sale_bound\",\n    \"assets/js/pvx-value-learning-loop.js includes association_only\",\n    \"assets/js/pvx-value-learning-loop.js includes sensitiveContentIncluded:false\",\n    \"value learning identity matches\",\n    \"forward transition captures only allowed influences\",\n    \"learning record is association only\",\n    \"sensitive and identifying payloads are excluded\",\n    \"backward transitions fail closed\",\n    \"summary counts checkpoints and influences independently\",\n    \"summary makes no causal claim\",\n    \"contract covers all downstream outcomes\"\n  ]\n}"
+}

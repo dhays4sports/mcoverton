@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-ADV-1.21",
+  "version": "3.20.122",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-ADV-1.21\",\n  \"pass\": true,\n  \"checks\": 20,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-decision-ledger.js exists\",\n    \"CF_ADV_1_21_DECISION_CONTRACT.json exists\",\n    \"assets/js/pvx-decision-ledger.js includes relevance\",\n    \"assets/js/pvx-decision-ledger.js includes recommendation_buy_in\",\n    \"assets/js/pvx-decision-ledger.js includes coverage_preference\",\n    \"assets/js/pvx-decision-ledger.js includes final_choice\",\n    \"assets/js/pvx-decision-ledger.js includes authorization\",\n    \"assets/js/pvx-decision-ledger.js includes topicResponse\",\n    \"assets/js/pvx-decision-ledger.js includes recommendationResponse\",\n    \"assets/js/pvx-decision-ledger.js includes Explicit customer authorization and scope\",\n    \"assets/js/pvx-decision-ledger.js includes inferred:false\",\n    \"decision ledger identity matches\",\n    \"five decision types are exact\",\n    \"relevance and buy-in preserve different sources\",\n    \"final choice is not authorization\",\n    \"authorization cannot be inferred\",\n    \"explicit authorization is scoped and immutable\",\n    \"ledger retains each semantic stream\",\n    \"contract forbids inference\"\n  ]\n}"
+}

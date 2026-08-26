@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-ADV-1.19",
+  "version": "3.20.120",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-ADV-1.19\",\n  \"pass\": true,\n  \"checks\": 20,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-agent-guide.js exists\",\n    \"CF_ADV_1_19_GUIDE_CONTRACT.json exists\",\n    \"assets/js/pvx-agent-guide.js includes exactCustomerWords\",\n    \"assets/js/pvx-agent-guide.js includes propertyFacts\",\n    \"assets/js/pvx-agent-guide.js includes sourceLabels\",\n    \"assets/js/pvx-agent-guide.js includes coverageEvidence\",\n    \"assets/js/pvx-agent-guide.js includes missingInformation\",\n    \"assets/js/pvx-agent-guide.js includes conflicts\",\n    \"assets/js/pvx-agent-guide.js includes discussionTopics\",\n    \"assets/js/pvx-agent-guide.js includes recommendationAnchors\",\n    \"assets/js/pvx-agent-guide.js includes Listen','Connect','Recommend','Ask\",\n    \"Agent Guide identity matches\",\n    \"opening preserves exact customer words\",\n    \"property value and source remain aligned\",\n    \"missing inputs merge without semantic loss\",\n    \"discussion and recommendation lanes remain separate\",\n    \"conversation principle is exact\",\n    \"guardrails keep reported readiness semantics truthful\",\n    \"all nine guide sections exist\"\n  ]\n}"
+}

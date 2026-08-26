@@ -1,0 +1,1 @@
+{"sprint":"CF-ADV-3.2","status":"pass","controls":["anonymous_preview","contact_consent","sms_consent","private_policy_files","secure_report_links","expiring_return_tokens","producer_access","revision_history","internal_note_separation","retention_purge","explicit_deletion"],"reportSaveIsContactConsent":false,"contactIsSmsConsent":false,"bindAuthorizationInferred":false}

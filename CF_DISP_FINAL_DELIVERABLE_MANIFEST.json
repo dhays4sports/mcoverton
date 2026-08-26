@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0",
+  "program": "CF-DISP",
+  "status": "complete",
+  "baselineVersion": "3.20.200",
+  "releaseOverlay": "CF-DISP-5.2",
+  "completedAt": "2026-08-24",
+  "baselineSha256": "cefd2d7b52bdc2a818941e981b9e867e08b1a14ccee17cd69d4a782eb2c7ba13",
+  "verification": {
+    "focusedQa": {
+      "passed": 27,
+      "failed": 0
+    },
+    "perSprintQa": {
+      "sprints": 22,
+      "passed": 141,
+      "failed": 0
+    },
+    "e2e": {
+      "passed": 30,
+      "failed": 0
+    },
+    "regression": {
+      "baseline": "305/208/97",
+      "final": "306/209/97",
+      "newUnexplainedFailures": 0
+    },
+    "cloudflareFunctionsBuild": {
+      "status": "external_dependency_gate",
+      "reason": "wrangler not installed in supplied archive/sandbox"
+    }
+  },
+  "deliverables": [
+    "root-deployable ZIP",
+    "SHA-256",
+    "CF-DISP-ROADMAP.md",
+    "CF_DISP_MASTER_PROGRESS_LEDGER.md",
+    "contracts/cf-disp/",
+    "qa/cf-disp/results/",
+    "CF_DISP_NORMALIZED_REGRESSION_COMPARISON.md",
+    "CF_DISP_PROTECTED_HASH_COMPARISON.md",
+    "CF_DISP_CROSS_SYSTEM_E2E_CERTIFICATION.md",
+    "CF_DISP_ACCESSIBILITY_PERFORMANCE_CERTIFICATION.md",
+    "CF_DISP_PRIVACY_SECURITY_CONSENT_CERTIFICATION.md",
+    "cf-disp/CARRIER_FACT_REGISTRY.json",
+    "campaigns/google-ads/",
+    "campaigns/google-ads/GOOGLE_MEASUREMENT_IMPLEMENTATION.md",
+    "seo/DISPLACEMENT_CONTENT_REGISTRY.json",
+    "seo/CARRIER_EXTENSION_GUIDE.md",
+    "CF_DISP_DEPLOYMENT_CUTOVER_RUNBOOK.md",
+    "CF_DISP_ROLLBACK_RUNBOOK.md",
+    "CF_DISP_FINAL_IMPLEMENTATION_SUMMARY.md"
+  ]
+}

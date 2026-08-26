@@ -1,0 +1,12 @@
+PASS normalizes safe opportunity
+PASS attribution URL stays opaque and source tagged
+PASS high intent fallback responds
+PASS customer service noise is suppressed
+PASS relationship drafts include pass-along resource token
+PASS API requires producer auth
+PASS API create/list/update lifecycle
+PASS AI endpoint uses deterministic fallback without API key
+PASS configured AI path sends store:false and parses structured output
+PASS AI endpoint rejects cross-origin writes
+
+10/10 outreach QA checks passed

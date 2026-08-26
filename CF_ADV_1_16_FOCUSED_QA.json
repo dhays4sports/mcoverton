@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-ADV-1.16",
+  "version": "3.20.117",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-ADV-1.16\",\n  \"pass\": true,\n  \"checks\": 17,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-focus-mode.js exists\",\n    \"CF_ADV_1_16_FOCUS_CONTRACT.json exists\",\n    \"assets/js/pvx-focus-mode.js includes understand\",\n    \"assets/js/pvx-focus-mode.js includes verify\",\n    \"assets/js/pvx-focus-mode.js includes discuss\",\n    \"assets/js/pvx-focus-mode.js includes recommend\",\n    \"assets/js/pvx-focus-mode.js includes decide\",\n    \"assets/js/pvx-focus-mode.js includes next_step\",\n    \"assets/js/pvx-focus-mode.js includes Locked until recommendation authority and evidence exist\",\n    \"assets/js/pvx-focus-mode.js includes do not treat it as authorization\",\n    \"Focus Mode identity matches\",\n    \"six ordered stages match contract\",\n    \"Snapshot path can discuss but cannot recommend\",\n    \"Home path verifies quote inputs and enables next step\",\n    \"combined evidence unlocks recommendation and decision\",\n    \"contract preserves buy-in boundary\"\n  ]\n}"
+}
