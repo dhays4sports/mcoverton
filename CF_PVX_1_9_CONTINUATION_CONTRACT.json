@@ -1,0 +1,1 @@
+{"id":"coveragefit-secure-continuation-v1","sprint":"CF-PVX-1.9","choices":["home_profile","current_policy","both","continue_later"],"homeProfileVisuallyPrimary":true,"accountRequired":false,"secureReturn":"opaque_expiring_token","exactStageResume":true,"pathsEitherOrder":true,"snapshotRemainsAvailable":true,"continueLaterSuccessful":true,"quoteReadinessIsEligibility":false}

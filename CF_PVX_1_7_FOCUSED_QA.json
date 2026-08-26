@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-PVX-1.7",
+  "version": "3.20.91",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-PVX-1.7\",\n  \"pass\": true,\n  \"checks\": 19,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-review-topic-cards.js exists\",\n    \"assets/css/pvx-topic-cards.css exists\",\n    \"assets/js/pvx-topic-card-view.js exists\",\n    \"CF_PVX_1_7_TOPIC_CARD_CONTRACT.json exists\",\n    \"assets/js/pvx-review-topic-cards.js includes Because you told us\",\n    \"assets/js/pvx-review-topic-cards.js includes Why it may matter\",\n    \"assets/js/pvx-review-topic-cards.js includes What Dylan would want to understand\",\n    \"assets/js/pvx-review-topic-cards.js includes recordType:'topicResponse'\",\n    \"assets/js/pvx-review-topic-cards.js includes recommendationResponse:false\",\n    \"assets/css/pvx-topic-cards.css includes min-height:44px\",\n    \"assets/css/pvx-topic-cards.css includes aria-pressed\",\n    \"topic card identity matches contract\",\n    \"four early relevance states exist\",\n    \"response is a topicResponse only\",\n    \"response upsert is stable by topic\",\n    \"card anatomy is complete\",\n    \"unsafe card content is escaped\",\n    \"contract preserves response boundary\"\n  ]\n}"
+}

@@ -1,0 +1,9 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import chooser from './assets/js/pvx-next-action-chooser.js';
+if(process.env.COVERAGEFIT_REGRESSION!=='1')assert.equal(fs.readFileSync('VERSION','utf8').trim(),'3.20.182');
+assert.equal(Object.keys(chooser.ACTIONS).length,7);assert.equal(Object.keys(chooser.SCOPES).length,4);assert.equal(chooser.relevant('become_quote_ready'),true);assert.equal(chooser.relevant('understand_snapshot'),false);
+const values=new Map(),storage={getItem:key=>values.get(key)||null,setItem:(key,value)=>values.set(key,value)};
+const first=chooser.chooseAction('become_quote_ready',{storage,now:new Date('2026-08-22T00:00:00Z'),actionId:'pva_first1234'});const same=chooser.chooseAction('become_quote_ready',{storage,now:new Date('2026-08-22T00:00:01Z'),actionId:'pva_other1234'});assert.equal(same.actionId,first.actionId);assert.equal(chooser.read(storage).desiredNextActions.length,1);
+chooser.chooseAction('review_current_policy',{storage,now:new Date('2026-08-23T00:00:00Z'),actionId:'pva_second123'});assert.equal(chooser.read(storage).desiredNextActions.length,2);
+const scope=chooser.chooseScope('carrier',{storage,now:new Date('2026-08-24T00:00:00Z'),expressionId:'pvs_scope1234'});assert.equal(scope.scope,'carrier');assert.equal(scope.sourceCheckpoint,'snapshot');assert.throws(()=>chooser.chooseScope('inferred',{storage}),/Unsupported/);
+const html=fs.readFileSync('pvx/snapshot/index.html','utf8');assert.ok(html.indexOf('pvxReadinessMoment')<html.indexOf('pvxNextActionChooser'));assert.ok(/id="pvxChangeScope"[^>]*hidden/.test(html));assert.ok(html.includes('pvx-next-action-primary'));assert.ok(html.includes('Skip or leave this for Dylan'));assert.ok(html.includes('not contact permission, a recommendation or an eligibility decision'));
+console.log(JSON.stringify({sprint:'CF-PVX-READY-1.6',pass:true,checks:16}));

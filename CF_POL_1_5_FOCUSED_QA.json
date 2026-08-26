@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-POL-1.5",
+  "version": "3.20.108",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-POL-1.5\",\n  \"pass\": true,\n  \"checks\": 20,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"server/pvx-policy-checkpoint-core.mjs exists\",\n    \"functions/api/pvx/policy-checkpoint.js exists\",\n    \"assets/js/pvx-policy-report.js exists\",\n    \"CF_POL_1_5_REPORT_CONTRACT.json exists\",\n    \"tests/pvx-policy-checkpoint-core-qa.mjs exists\",\n    \"server/pvx-policy-checkpoint-core.mjs includes checkpointType:'coverage_review_ready'\",\n    \"server/pvx-policy-checkpoint-core.mjs includes reportRevision:'2P'\",\n    \"server/pvx-policy-checkpoint-core.mjs includes immutable:true\",\n    \"server/pvx-policy-checkpoint-core.mjs includes confirmedFacts\",\n    \"server/pvx-policy-checkpoint-core.mjs includes unknownFacts\",\n    \"server/pvx-policy-checkpoint-core.mjs includes reviewReadiness\",\n    \"server/pvx-policy-checkpoint-core.mjs includes neededVerification\",\n    \"server/pvx-policy-checkpoint-core.mjs includes topicResponseIsBuyIn:false\",\n    \"policy report client identity matches\",\n    \"client uses coverage checkpoint and revision 2P\",\n    \"policy checkpoint server QA passes: {\\\"pass\\\":true,\\\"checks\\\":12}\\n\",\n    \"report adds all evidence-backed review sections\",\n    \"prior report revisions remain immutable history\",\n    \"score and reaction boundaries remain strict\"\n  ]\n}"
+}

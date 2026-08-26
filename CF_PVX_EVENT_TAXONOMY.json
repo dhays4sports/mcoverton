@@ -1,0 +1,16 @@
+{
+  "id": "coveragefit-pvx-event-taxonomy-v1",
+  "sprint": "CF-PVX-UX-1.0",
+  "privacyRule": "Analytics events contain stable keys and state classifications, never free-text answers, addresses, policy values, document contents, or contact details.",
+  "events": [
+    {"name":"pvx_experience_started","stage":"entry","properties":["resumed","featureFlag"]},
+    {"name":"pvx_step_viewed","stage":"interaction","properties":["stepId","stage","stepNumber"]},
+    {"name":"pvx_answer_saved","stage":"interaction","properties":["stepId","answerType","answerCount","containsPersonalData"]},
+    {"name":"pvx_step_completed","stage":"interaction","properties":["stepId","nextStepId"]},
+    {"name":"pvx_back_used","stage":"interaction","properties":["stepId"]},
+    {"name":"pvx_save_exit_opened","stage":"resume","properties":["stepId"]},
+    {"name":"pvx_foundation_preview_processing","stage":"transition","properties":["artificialDelay"]},
+    {"name":"pvx_error_shown","stage":"error","properties":["recoverable","statePreserved"]},
+    {"name":"pvx_foundation_preview_completed","stage":"completion","properties":["stepCount","contactCollected","scoreCreated"]}
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.1",
+  "contractId": "coveragefit-ethical-experiment-registry-v1",
+  "build": "CF-PVX-READY-LEARN-2.2",
+  "experiments": [
+    {
+      "experimentId": "pvx_snapshot_hierarchy_pilot_v1",
+      "area": "snapshot_hierarchy",
+      "status": "draft",
+      "hypothesis": "A clearer first evidence connection may help more customers understand why a topic appeared.",
+      "targetEvent": "topic_expanded",
+      "primaryMetric": "topic_expanded",
+      "protectedMetrics": ["snapshot_viewed", "deeper_path_selected", "continue_later_visible"],
+      "guardrails": ["comprehension", "producer_quality", "continue_later_visible", "readiness_optional", "snapshot_before_contact"],
+      "comprehensionMetric": "topic_expanded",
+      "producerQualityMetric": "producer_conversation_completed",
+      "samplePlan": {"minimumSampleSize": 100, "minimumReportableCohort": 5, "observationWindow": "four complete business weeks"},
+      "stoppingRule": {"minimumSampleSize": 100, "completeObservationWindow": true, "noEarlySignificance": true},
+      "choiceProtections": ["exploring", "not_sure", "continue_later"],
+      "variants": [
+        {"key": "control", "weight": 1, "presentationId": "snapshot_hierarchy_control"},
+        {"key": "evidence_first", "weight": 1, "presentationId": "snapshot_hierarchy_evidence_first"}
+      ],
+      "reviews": {"semantic": "pending", "accessibility": "pending", "privacy": "pending"},
+      "rollback": {"method": "set_status_paused", "controlVariant": "control", "immediate": true},
+      "protectedContracts": ["recommendation_rules", "protection_score_math", "evidence_meaning", "consent", "identity", "suppression", "producer_ownership", "value_order"]
+    }
+  ]
+}

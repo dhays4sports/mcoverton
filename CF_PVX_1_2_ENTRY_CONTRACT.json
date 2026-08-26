@@ -1,0 +1,11 @@
+{
+  "id":"coveragefit-pvx-frictionless-entry-v1",
+  "sprint":"CF-PVX-1.2",
+  "knownAddress":"one_tap_confirmation",
+  "unknownAddress":"one_clean_interaction",
+  "openingTechnicalFields":[],
+  "migratedToHomeProfile":["yearBuilt","squareFeet","stories","construction","roof","foundation","pool","detachedStructures"],
+  "zeroRepeat":["name","phone","email","reviewReason","propertyInformation"],
+  "contactGateBeforeValue":false,
+  "protectionScoreBeforePolicyEvidence":false
+}

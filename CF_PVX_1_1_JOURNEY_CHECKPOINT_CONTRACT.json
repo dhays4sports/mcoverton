@@ -1,0 +1,18 @@
+{
+  "id": "coveragefit-progressive-journey-checkpoint-v1",
+  "sprint": "CF-PVX-1.1",
+  "schemaVersion": "1.0",
+  "journeyProfile": ["currentStage","completedStages","continuationChoices","resumeState","leadCheckpoints","reportRevisions","homeProfilePath","currentPolicyPath","producerReviewState"],
+  "supportedShapes": ["snapshot_only","snapshot_home_profile","snapshot_policy_review","snapshot_both_paths","continue_later"],
+  "semanticSeparations": {
+    "advisoryReviewTopicIsRecommendation": false,
+    "topicResponseIsRecommendationResponse": false,
+    "quoteReadinessIsCarrierEligibility": false,
+    "reportSavedIsContactConsent": false,
+    "acceptedLogicIsBindingAuthorization": false,
+    "personalDiscoveryAffectsProtectionScore": false
+  },
+  "appendOnly": true,
+  "reusesDiscoveryProfile": true,
+  "parallelCustomerStore": false
+}

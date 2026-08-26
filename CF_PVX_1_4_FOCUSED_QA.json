@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-PVX-1.4",
+  "version": "3.20.88",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-PVX-1.4\",\n  \"pass\": true,\n  \"checks\": 20,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-contextual-branching.js exists\",\n    \"pvx/refine/index.html exists\",\n    \"assets/js/pvx-refine.js exists\",\n    \"CF_PVX_1_4_BRANCHING_CONTRACT.json exists\",\n    \"assets/js/pvx-contextual-branching.js includes MAX_DEPTH=1\",\n    \"assets/js/pvx-contextual-branching.js includes reconcileBranchAnswers\",\n    \"assets/js/pvx-contextual-branching.js includes Got it. We’ll keep the price issue central\",\n    \"assets/js/pvx-contextual-branching.js includes rebuilding assumptions may be worth checking\",\n    \"CF_PVX_1_4_BRANCHING_CONTRACT.json includes maximumDepth\",\n    \"CF_PVX_1_4_BRANCHING_CONTRACT.json includes staleAnswerClearing\",\n    \"CF_PVX_1_4_BRANCHING_CONTRACT.json includes fearLanguage\",\n    \"branch runtime identity matches contract\",\n    \"eligible evidence creates bounded refinements\",\n    \"every branch stays one level deep\",\n    \"price-only acknowledgment remains direct\",\n    \"upgrade acknowledgment is evidence backed\",\n    \"not-sure profile produces no branch\",\n    \"inactive branch answers are cleared\",\n    \"contract bans deep or fear-based branching\"\n  ]\n}"
+}

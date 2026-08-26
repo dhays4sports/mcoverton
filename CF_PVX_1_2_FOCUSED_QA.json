@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-PVX-1.2",
+  "version": "3.20.86",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-PVX-1.2\",\n  \"pass\": true,\n  \"checks\": 23,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"pvx/start/index.html exists\",\n    \"assets/css/pvx-snapshot-journey.css exists\",\n    \"assets/js/pvx-entry.js exists\",\n    \"CF_PVX_1_2_ENTRY_CONTRACT.json exists\",\n    \"pvx/start/index.html includes See what may be worth reviewing\",\n    \"pvx/start/index.html includes No technical questions yet\",\n    \"pvx/start/index.html includes Value before contact\",\n    \"pvx/start/index.html includes autocomplete=\\\"street-address\\\"\",\n    \"assets/js/pvx-entry.js includes resolveEntry\",\n    \"assets/js/pvx-entry.js includes knownAddress\",\n    \"assets/js/pvx-entry.js includes customer-confirmed\",\n    \"assets/js/pvx-entry.js includes repeatedFields: 0\",\n    \"CF_PVX_1_2_ENTRY_CONTRACT.json includes one_tap_confirmation\",\n    \"CF_PVX_1_2_ENTRY_CONTRACT.json includes openingTechnicalFields\",\n    \"CF_PVX_1_2_ENTRY_CONTRACT.json includes contactGateBeforeValue\",\n    \"entry runtime identity matches contract\",\n    \"known address resolves without repeat\",\n    \"direct entry stays address-unknown\",\n    \"one address interaction validates\",\n    \"confirmation preserves explicit provenance\",\n    \"technical opening list is empty\",\n    \"contact and score gates are absent\"\n  ]\n}"
+}

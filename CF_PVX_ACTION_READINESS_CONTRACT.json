@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "contractId": "coveragefit-action-readiness-v1",
+  "build": "CF-PVX-READY-1.0",
+  "collections": {
+    "actionReadinessExpressions": { "appendOnly": true, "optional": true, "missing": "unknown" },
+    "changeScopeExpressions": { "appendOnly": true, "optional": true, "missing": "unknown", "automaticPostSnapshotPrompt": false },
+    "desiredNextActions": { "appendOnly": true, "optional": true },
+    "producerContactRequests": { "separateFromSaving": true, "separateFromReadiness": true },
+    "producerOpportunityProjection": { "deterministic": true, "numericScore": false, "behavioralInference": false }
+  },
+  "actionReadinessStates": ["open_if_fit", "wants_explanation_first", "price_dependent", "exploring", "not_sure"],
+  "changeScopes": ["coverage_structure", "carrier", "either", "not_sure"],
+  "desiredNextActions": ["understand_snapshot", "ask_about_topics", "see_if_comparison_is_worthwhile", "become_quote_ready", "review_current_policy", "continue_independently", "continue_later"],
+  "changeScopeAllowedTriggers": ["comparison_requested", "dylan_help_requested", "quote_preparation_selected", "policy_review_selected", "deeper_checkpoint"],
+  "semanticBoundaries": {
+    "readinessIsTopicResponse": false,
+    "readinessIsRecommendationResponse": false,
+    "readinessIsContactPermission": false,
+    "changeScopeIsReadiness": false,
+    "changeScopeIsCarrierSwitchPrediction": false,
+    "desiredActionIsContactPermission": false,
+    "opportunityProjectionIsLeadScore": false,
+    "readinessAffectsProtectionScore": false
+  },
+  "protectedInferenceInputs": ["route", "campaign", "zip", "profession", "referral", "home_value", "behavior", "phone", "email", "demographics", "completed_question_count", "producer_assumption"]
+}
+

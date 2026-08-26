@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-PVX-1.5",
+  "version": "3.20.89",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-PVX-1.5\",\n  \"pass\": true,\n  \"checks\": 21,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-review-topic-engine.js exists\",\n    \"CF_PVX_1_5_REVIEW_TOPIC_CONTRACT.json exists\",\n    \"assets/js/pvx-review-topic-engine.js includes status:'worth_reviewing'\",\n    \"assets/js/pvx-review-topic-engine.js includes policyFinding:false\",\n    \"assets/js/pvx-review-topic-engine.js includes recommendation:false\",\n    \"assets/js/pvx-review-topic-engine.js includes MAX_TOPICS=3\",\n    \"assets/js/pvx-review-topic-engine.js includes slice(0,MAX_TOPICS)\",\n    \"CF_PVX_1_5_REVIEW_TOPIC_CONTRACT.json includes missingEvidence\",\n    \"CF_PVX_1_5_REVIEW_TOPIC_CONTRACT.json includes conflictingEvidence\",\n    \"CF_PVX_1_5_REVIEW_TOPIC_CONTRACT.json includes no_forced_topic\",\n    \"CF_PVX_1_5_REVIEW_TOPIC_CONTRACT.json includes affectsProtectionScore\",\n    \"topic engine identity matches contract\",\n    \"topics are capped at three\",\n    \"all emitted topics satisfy truthful contract\",\n    \"rebuilding topic has two evidence references\",\n    \"no topic becomes a finding or recommendation\",\n    \"no policy or limit claim is emitted\",\n    \"missing evidence produces no forced topic\",\n    \"conflicting evidence fails closed\",\n    \"contract preserves score boundary\"\n  ]\n}"
+}

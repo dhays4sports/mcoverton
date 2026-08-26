@@ -1,0 +1,24 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {createRequire} from 'node:module';
+import {PVX_READY_EVENT_BUILD,PVX_EVENT_NAMES,validatePvxEvent} from './server/pvx-event-core.mjs';
+
+if(process.env.COVERAGEFIT_REGRESSION!=='1')assert.equal(fs.readFileSync('VERSION','utf8').trim(),'3.20.194');
+assert.equal(PVX_READY_EVENT_BUILD,'CF-PVX-READY-LEARN-2.0');
+const names=['readiness_prompt_viewed','readiness_expressed','readiness_updated','change_scope_expressed','change_scope_updated','desired_action_selected','contact_scope_selected','contact_plan_requested','contact_plan_confirmed','producer_brief_viewed','producer_contact_attempted','producer_conversation_completed'];
+for(const name of names)assert.ok(PVX_EVENT_NAMES.includes(name),name);
+const values=new Map();globalThis.localStorage={getItem:key=>values.has(key)?values.get(key):null,setItem:(key,value)=>values.set(key,value)};
+const client=createRequire(import.meta.url)('./assets/js/pvx-consumer-events.js');
+const event=client.event('readiness_expressed',{stage:'snapshot',result:'selected',readinessState:'exploring',name:'Private',email:'private@example.com',exactWords:'do not collect'});
+assert.deepEqual(event.detail,{stage:'snapshot',result:'selected',readinessState:'exploring'});
+assert.equal(validatePvxEvent(event).valid,true);
+assert.equal(validatePvxEvent({...event,detail:{readinessState:'qualified'}}).valid,false);
+assert.equal(validatePvxEvent({...event,detail:{intentScore:99}}).valid,false);
+const actions=fs.readFileSync('assets/js/pvx-next-action-chooser.js','utf8'),checkpoint=fs.readFileSync('assets/js/pvx-checkpoint-view.js','utf8'),workspace=fs.readFileSync('assets/js/pvx-unified-workspace.js','utf8'),snapshot=fs.readFileSync('pvx/snapshot/index.html','utf8'),workspaceHtml=fs.readFileSync('agent/workspace/index.html','utf8');
+for(const marker of['desired_action_selected','change_scope_expressed','change_scope_updated'])assert.ok(actions.includes(marker));
+for(const marker of['contact_scope_selected','contact_plan_requested','contact_plan_confirmed'])assert.ok(checkpoint.includes(marker));
+assert.ok(workspace.includes('producer_brief_viewed'));
+assert.ok(snapshot.indexOf('pvx-consumer-events.js')<snapshot.indexOf('pvx-readiness-moment.js'));
+assert.ok(workspaceHtml.indexOf('pvx-consumer-events.js')<workspaceHtml.indexOf('pvx-unified-workspace.js'));
+for(const source of[fs.readFileSync('server/pvx-event-core.mjs','utf8'),fs.readFileSync('assets/js/pvx-consumer-events.js','utf8')])for(const prohibited of['fullName','emailAddress','streetAddress','phoneNumber','exactCustomerWords','leadScore','intentScore'])assert.ok(!source.includes(`${prohibited}:`));
+console.log(JSON.stringify({sprint:'CF-PVX-READY-LEARN-2.0',pass:true,checks:34}));

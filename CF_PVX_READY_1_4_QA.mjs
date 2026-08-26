@@ -1,0 +1,8 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';import {deriveTriggerNarrative,validTriggerNarrative} from './server/pvx-trigger-narrative-core.mjs';
+if(process.env.COVERAGEFIT_REGRESSION!=='1')assert.equal(fs.readFileSync('VERSION','utf8').trim(),'3.20.180');
+const why={customerReported:true,inferred:false,headline:'Your renewal price changed',connection:'Your renewal price changed. You want to keep price central.',evidenceRefs:[{key:'shoppingReason',status:'customer-reported'},{key:'improvementPriorities',status:'customer-reported'}]};
+const topic={topicKey:'cost_focused_comparison',label:'Cost-focused comparison',evidenceRefs:[{key:'improvementPriorities'}]};
+const narrative=deriveTriggerNarrative(why,topic);assert.equal(narrative.connectedTopicKey,'cost_focused_comparison');assert.match(narrative.topicConnection,/connects directly/);assert.equal(validTriggerNarrative(narrative),true);assert.equal(narrative.policyFinding,false);assert.equal(narrative.recommendation,false);assert.equal(narrative.affectsProtectionScore,false);
+const unrelated=deriveTriggerNarrative(why,{topicKey:'water',label:'Water',evidenceRefs:[{key:'claimExperience'}]});assert.equal(unrelated.connectedTopicKey,null);assert.equal(unrelated.topicConnection,'');assert.equal(deriveTriggerNarrative(null,topic),null);
+const html=fs.readFileSync('pvx/snapshot/index.html','utf8');assert.ok(html.includes('Why you’re reviewing'));assert.ok(html.includes('scan order, not severity'));assert.ok(html.indexOf('pvx-trigger-narrative.js')<html.indexOf('pvx-snapshot-model.js'));assert.ok(!/current policy (has|lacks|contains)/i.test(html));
+console.log(JSON.stringify({sprint:'CF-PVX-READY-1.4',pass:true,checks:13}));

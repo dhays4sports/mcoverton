@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { deriveWhyNowThread, validWhyNowThread } from './server/pvx-why-now-core.mjs';
+if (process.env.COVERAGEFIT_REGRESSION !== '1') assert.equal(fs.readFileSync('VERSION','utf8').trim(), '3.20.177');
+const discovery={answers:{shoppingReason:'renewal_increase',improvementPriorities:['price_only','agent_access']},exactCustomerWords:{shoppingReason:'My renewal jumped again'}};
+const thread=deriveWhyNowThread(discovery);
+assert.equal(thread.headline,'My renewal jumped again');
+assert.match(thread.connection,/keep price central/);
+assert.equal(thread.evidenceRefs.length,2);
+assert.equal(validWhyNowThread(thread),true);
+assert.equal(thread.inferred,false);
+assert.equal(thread.createsTopic,false);
+assert.equal(thread.createsRecommendation,false);
+assert.equal(thread.affectsProtectionScore,false);
+assert.equal(deriveWhyNowThread({answers:{}}),null);
+assert.ok(fs.readFileSync('pvx/snapshot/index.html','utf8').includes('/assets/js/pvx-why-now.js'));
+assert.ok(fs.readFileSync('assets/js/pvx-snapshot-model.js','utf8').includes('whyNowThread'));
+console.log(JSON.stringify({sprint:'CF-PVX-READY-1.1',pass:true,checks:12}));

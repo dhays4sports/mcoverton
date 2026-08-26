@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import { createRequire } from 'node:module';
+import { handlePvxEvent, validatePvxEvent, PVX_EVENT_NAMES } from './server/pvx-event-core.mjs';
+
+const values=new Map();
+globalThis.localStorage={getItem:key=>values.has(key)?values.get(key):null,setItem:(key,value)=>values.set(key,value)};
+const require=createRequire(import.meta.url),client=require('./assets/js/pvx-consumer-events.js');
+for(const name of['hook_viewed','entry_selected','first_answered','snapshot_viewed','topic_count_rendered','topic_expanded','topic_responded','snapshot_saved','snapshot_shared','deeper_path_selected','delta_viewed','report_returned','life_event_updated','contact_requested','producer_ready','path_completed'])assert(PVX_EVENT_NAMES.includes(name));
+const event=client.event('topic_count_rendered',{stage:'snapshot',topicCount:3,name:'Avery',email:'a@example.com',address:'1 Main',freeText:'private',token:'secret'});
+assert.deepEqual(event.detail,{stage:'snapshot',topicCount:3});
+assert.equal(validatePvxEvent(event).valid,true);
+assert.equal(client.anonymousJourneyId(),event.anonymousJourneyId);
+const invalid={...event,eventId:'bad',detail:{...event.detail,email:'a@example.com'}};
+assert.equal(validatePvxEvent(invalid).valid,false);
+const store={async setJSON(key,value,options){if(options?.onlyIfNew&&values.has(key))throw new Error('duplicate');values.set(key,value);},async get(key){return values.get(key)||null;}};
+const request=()=>new Request('https://coveragefit.com/api/pvx/events',{method:'POST',headers:{origin:'https://coveragefit.com','content-type':'application/json'},body:JSON.stringify(event)});
+const first=await handlePvxEvent(request(),{store}),firstBody=await first.json();assert.equal(first.status,200);assert.equal(firstBody.accepted,true);
+const duplicate=await handlePvxEvent(request(),{store}),duplicateBody=await duplicate.json();assert.equal(duplicateBody.deduped,true);
+const records=[...values.values()].filter(value=>value?.recordType==='pvx_meaningful_signal_event');assert.equal(records.length,1);assert.equal(records[0].anonymous,true);assert.doesNotMatch(JSON.stringify(records[0]),/Avery|a@example|1 Main|secret|private/);
+const badRequest=new Request('https://coveragefit.com/api/pvx/events',{method:'POST',headers:{origin:'https://evil.example','content-type':'application/json'},body:JSON.stringify(event)});assert.equal((await handlePvxEvent(badRequest,{store})).status,403);
+const source=await import('node:fs').then(fs=>fs.readFileSync('assets/js/pvx-consumer-events.js','utf8'));assert.match(source,/online/);assert.match(source,/QUEUE_KEY/);assert.match(source,/keepalive/);
+console.log('CF-PVX-LEARN-1.0 QA: PASS');

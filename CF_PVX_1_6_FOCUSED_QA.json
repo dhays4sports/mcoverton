@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-PVX-1.6",
+  "version": "3.20.90",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-PVX-1.6\",\n  \"pass\": true,\n  \"checks\": 21,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-snapshot-model.js exists\",\n    \"pvx/snapshot/index.html exists\",\n    \"assets/css/pvx-snapshot-results.css exists\",\n    \"assets/js/pvx-snapshot-view.js exists\",\n    \"CF_PVX_1_6_SNAPSHOT_CONTRACT.json exists\",\n    \"pvx/snapshot/index.html includes Your CoverageFit Snapshot\",\n    \"pvx/snapshot/index.html includes without pretending we have evaluated your current policy\",\n    \"pvx/snapshot/index.html includes not a review of your current policy\",\n    \"assets/js/pvx-snapshot-model.js includes anonymousPreview:true\",\n    \"assets/js/pvx-snapshot-model.js includes policyFindings:[]\",\n    \"assets/js/pvx-snapshot-model.js includes recommendations:[]\",\n    \"assets/js/pvx-snapshot-model.js includes protectionScoreCreated:false\",\n    \"snapshot model identity matches contract\",\n    \"snapshot is anonymous and ungated\",\n    \"snapshot fact display is capped\",\n    \"privacy response is omitted\",\n    \"all personal statements are traceable\",\n    \"no score property or recommendations exist\",\n    \"guardrails deny policy and eligibility conclusions\",\n    \"contract prohibits fake analysis delay\"\n  ]\n}"
+}

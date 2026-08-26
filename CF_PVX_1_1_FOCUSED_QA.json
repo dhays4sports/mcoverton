@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-PVX-1.1",
+  "version": "3.20.85",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-PVX-1.1\",\n  \"pass\": true,\n  \"checks\": 22,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-journey-contract.js exists\",\n    \"CF_PVX_1_1_JOURNEY_CHECKPOINT_CONTRACT.json exists\",\n    \"CF-PVX-ROADMAP.md exists\",\n    \"assets/js/pvx-journey-contract.js includes advisoryReviewTopics\",\n    \"assets/js/pvx-journey-contract.js includes topicResponses\",\n    \"assets/js/pvx-journey-contract.js includes recommendationResponses\",\n    \"assets/js/pvx-journey-contract.js includes quoteReadiness\",\n    \"assets/js/pvx-journey-contract.js includes recordCheckpoint\",\n    \"assets/js/pvx-journey-contract.js includes addReportRevision\",\n    \"CF_PVX_1_1_JOURNEY_CHECKPOINT_CONTRACT.json includes advisoryReviewTopicIsRecommendation\",\n    \"CF_PVX_1_1_JOURNEY_CHECKPOINT_CONTRACT.json includes reportSavedIsContactConsent\",\n    \"CF_PVX_1_1_JOURNEY_CHECKPOINT_CONTRACT.json includes personalDiscoveryAffectsProtectionScore\",\n    \"journey runtime identity matches contract\",\n    \"new profile initializes independent paths\",\n    \"both paths can start independently\",\n    \"checkpoint append is idempotent\",\n    \"report revision is immutable by contract\",\n    \"all prohibited semantic equivalences fail closed\",\n    \"report save does not create contact consent\",\n    \"accepted logic does not bind\",\n    \"contract is additive and reuses discovery profile\"\n  ]\n}"
+}
