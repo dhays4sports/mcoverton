@@ -1,0 +1,1 @@
+{"id":"coveragefit-home-core-characteristics-v1","sprint":"CF-HOME-3.3","fields":["occupancy","yearBuilt","livingArea","stories","constructionType","foundationType","roofType","roofAge","garage","adu","detachedStructures"],"askOnlyUnknownOrConflict":true,"notSureValid":true,"singleDecisionPerStep":true,"source":"customer_reported","technicalFieldsBeforeSnapshot":false}

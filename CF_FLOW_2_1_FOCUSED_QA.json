@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-FLOW-2.1",
+  "version": "3.20.109",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-FLOW-2.1\",\n  \"pass\": true,\n  \"checks\": 16,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-multipath-orchestrator.js exists\",\n    \"CF_FLOW_2_1_ORCHESTRATOR_CONTRACT.json exists\",\n    \"assets/js/pvx-multipath-orchestrator.js includes producer_assisted\",\n    \"assets/js/pvx-multipath-orchestrator.js includes home_profile\",\n    \"assets/js/pvx-multipath-orchestrator.js includes current_policy\",\n    \"assets/js/pvx-multipath-orchestrator.js includes combinedReview\",\n    \"assets/js/pvx-multipath-orchestrator.js includes secure_return\",\n    \"assets/js/pvx-multipath-orchestrator.js includes choose_optional_path\",\n    \"multipath orchestrator identity matches\",\n    \"policy-first order is preserved\",\n    \"both complete paths make combined review ready\",\n    \"both order converges to producer review\",\n    \"pause returns to exact path and step\",\n    \"producer assistance preserves same path state\",\n    \"contract includes all seven approved journey forms\"\n  ]\n}"
+}

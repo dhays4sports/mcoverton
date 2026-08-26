@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-FLOW-2.3",
+  "version": "3.20.111",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-FLOW-2.3\",\n  \"pass\": true,\n  \"checks\": 21,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-zero-repeat-reconciliation.js exists\",\n    \"CF_FLOW_2_3_RECONCILIATION_CONTRACT.json exists\",\n    \"assets/js/pvx-zero-repeat-reconciliation.js includes 408farmers\",\n    \"assets/js/pvx-zero-repeat-reconciliation.js includes ai_caller\",\n    \"assets/js/pvx-zero-repeat-reconciliation.js includes ringcentral_sms\",\n    \"assets/js/pvx-zero-repeat-reconciliation.js includes property_intelligence\",\n    \"assets/js/pvx-zero-repeat-reconciliation.js includes policy_document\",\n    \"assets/js/pvx-zero-repeat-reconciliation.js includes producer_verification\",\n    \"assets/js/pvx-zero-repeat-reconciliation.js includes agreement_reused\",\n    \"assets/js/pvx-zero-repeat-reconciliation.js includes trusted_confirmation_updated\",\n    \"assets/js/pvx-zero-repeat-reconciliation.js includes conflict_needs_confirmation\",\n    \"assets/js/pvx-zero-repeat-reconciliation.js includes silentWinner:false\",\n    \"reconciliation identity matches\",\n    \"all nine source systems are modeled\",\n    \"agreement is reused without repeat\",\n    \"trusted confirmation updates with history\",\n    \"equal-trust conflict fails closed and asks once\",\n    \"previously asked conflict does not repeat\",\n    \"unknown remains unknown\",\n    \"contract prohibits silent winner selection\"\n  ]\n}"
+}

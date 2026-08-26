@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-HOME-3.1",
+  "version": "3.20.94",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-HOME-3.1\",\n  \"pass\": true,\n  \"checks\": 15,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-home-profile-contract.js exists\",\n    \"CF_HOME_3_1_DATA_CONTRACT.json exists\",\n    \"assets/js/pvx-home-profile-contract.js includes property_source_reported\",\n    \"assets/js/pvx-home-profile-contract.js includes customer_confirmed\",\n    \"assets/js/pvx-home-profile-contract.js includes producer_verified\",\n    \"assets/js/pvx-home-profile-contract.js includes conflict_needs_confirmation\",\n    \"assets/js/pvx-home-profile-contract.js includes ready_for_producer_review\",\n    \"Home Profile contract runtime identity matches\",\n    \"all required normalized sections exist\",\n    \"property-source fact is not silently confirmed\",\n    \"customer confirmation has explicit provenance\",\n    \"producer verification remains a separate state\",\n    \"unknown and conflict need confirmation\",\n    \"readiness and eligibility are semantically separate\"\n  ]\n}"
+}

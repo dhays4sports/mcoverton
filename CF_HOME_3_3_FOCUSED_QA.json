@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-HOME-3.3",
+  "version": "3.20.96",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-HOME-3.3\",\n  \"pass\": true,\n  \"checks\": 20,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-home-core-characteristics.js exists\",\n    \"CF_HOME_3_3_CORE_CHARACTERISTICS_CONTRACT.json exists\",\n    \"assets/js/pvx-home-core-characteristics.js includes occupancy\",\n    \"assets/js/pvx-home-core-characteristics.js includes yearBuilt\",\n    \"assets/js/pvx-home-core-characteristics.js includes livingArea\",\n    \"assets/js/pvx-home-core-characteristics.js includes constructionType\",\n    \"assets/js/pvx-home-core-characteristics.js includes foundationType\",\n    \"assets/js/pvx-home-core-characteristics.js includes roofAge\",\n    \"assets/js/pvx-home-core-characteristics.js includes garage\",\n    \"assets/js/pvx-home-core-characteristics.js includes adu\",\n    \"assets/js/pvx-home-core-characteristics.js includes detachedStructures\",\n    \"assets/js/pvx-home-core-characteristics.js includes not_sure\",\n    \"core characteristics identity matches\",\n    \"required core characteristic set is complete\",\n    \"confirmed and verified facts are never repeated\",\n    \"source-reported and conflict facts remain askable\",\n    \"not sure stores durable unknown provenance\",\n    \"customer answer has customer-reported provenance\",\n    \"technical questions are explicitly post-Snapshot\"\n  ]\n}"
+}

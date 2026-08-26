@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-FLOW-2.2",
+  "version": "3.20.110",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-FLOW-2.2\",\n  \"pass\": true,\n  \"checks\": 15,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-report-revision-ledger.js exists\",\n    \"CF_FLOW_2_2_LEDGER_CONTRACT.json exists\",\n    \"assets/js/pvx-report-revision-ledger.js includes ['1','2H','2P','3','Final']\",\n    \"assets/js/pvx-report-revision-ledger.js includes immutable:true\",\n    \"assets/js/pvx-report-revision-ledger.js includes Immutable report revision already exists\",\n    \"assets/js/pvx-report-revision-ledger.js includes Combined review requires revisions 2H and 2P\",\n    \"report ledger identity matches\",\n    \"five report revisions retain exact order\",\n    \"all revisions are immutable and non-superseding\",\n    \"prior Snapshot remains retrievable at Final\",\n    \"identical append is idempotent\",\n    \"conflicting overwrite is rejected\",\n    \"combined revision fails without both paths\",\n    \"contract guarantees revision history\"\n  ]\n}"
+}

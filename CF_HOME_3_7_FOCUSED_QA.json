@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-HOME-3.7",
+  "version": "3.20.100",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-HOME-3.7\",\n  \"pass\": true,\n  \"checks\": 18,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-quote-readiness.js exists\",\n    \"CF_HOME_3_7_READINESS_CONTRACT.json exists\",\n    \"assets/js/pvx-quote-readiness.js includes ready_for_producer_review\",\n    \"assets/js/pvx-quote-readiness.js includes needs_customer_information\",\n    \"assets/js/pvx-quote-readiness.js includes needs_document\",\n    \"assets/js/pvx-quote-readiness.js includes needs_property_verification\",\n    \"assets/js/pvx-quote-readiness.js includes manual_review_required\",\n    \"assets/js/pvx-quote-readiness.js includes carrierEligibilityDetermined:false\",\n    \"assets/js/pvx-quote-readiness.js includes ratePromised:false\",\n    \"quote readiness identity matches\",\n    \"six exact readiness states exist\",\n    \"empty profile stays not started\",\n    \"complete confirmed profile is producer-review ready\",\n    \"conflict requires property verification\",\n    \"document request has distinct state\",\n    \"manual review takes precedence safely\",\n    \"guardrails deny commercial conclusions\"\n  ]\n}"
+}

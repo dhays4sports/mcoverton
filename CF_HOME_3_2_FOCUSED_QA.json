@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-HOME-3.2",
+  "version": "3.20.95",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-HOME-3.2\",\n  \"pass\": true,\n  \"checks\": 23,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"pvx/home-profile/index.html exists\",\n    \"assets/js/pvx-property-prefill.js exists\",\n    \"assets/js/pvx-home-profile-view.js exists\",\n    \"assets/css/pvx-home-profile.css exists\",\n    \"CF_HOME_3_2_PREFILL_CONTRACT.json exists\",\n    \"pvx/home-profile/index.html includes one property fact at a time\",\n    \"pvx/home-profile/index.html includes data-choice=\\\"yes\\\"\",\n    \"pvx/home-profile/index.html includes data-choice=\\\"change\\\"\",\n    \"pvx/home-profile/index.html includes data-choice=\\\"not_sure\\\"\",\n    \"assets/css/pvx-home-profile.css includes min-height:48px\",\n    \"assets/css/pvx-home-profile.css includes font-size:16px\",\n    \"assets/js/pvx-property-prefill.js includes property_source_reported\",\n    \"assets/js/pvx-property-prefill.js includes confirmFact\",\n    \"assets/js/pvx-property-prefill.js includes source:'customer_reported'\",\n    \"assets/js/pvx-property-prefill.js includes source:'unknown'\",\n    \"property prefill identity matches\",\n    \"only unconfirmed source facts enter queue\",\n    \"found fact prompt is plain and specific\",\n    \"yes explicitly confirms customer provenance\",\n    \"change records customer-reported value\",\n    \"not sure never verifies source value\",\n    \"contract prevents silent verification\"\n  ]\n}"
+}

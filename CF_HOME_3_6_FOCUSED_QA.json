@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-HOME-3.6",
+  "version": "3.20.99",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-HOME-3.6\",\n  \"pass\": true,\n  \"checks\": 20,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-home-history-mitigation.js exists\",\n    \"CF_HOME_3_6_HISTORY_MITIGATION_CONTRACT.json exists\",\n    \"assets/js/pvx-home-history-mitigation.js includes currentCarrier\",\n    \"assets/js/pvx-home-history-mitigation.js includes continuousInsurance\",\n    \"assets/js/pvx-home-history-mitigation.js includes renewalDate\",\n    \"assets/js/pvx-home-history-mitigation.js includes nonrenewalOrCancellation\",\n    \"assets/js/pvx-home-history-mitigation.js includes priorLosses\",\n    \"assets/js/pvx-home-history-mitigation.js includes openClaims\",\n    \"assets/js/pvx-home-history-mitigation.js includes waterDetection\",\n    \"assets/js/pvx-home-history-mitigation.js includes automaticWaterShutoff\",\n    \"assets/js/pvx-home-history-mitigation.js includes automaticGasShutoff\",\n    \"assets/js/pvx-home-history-mitigation.js includes manualReviewItems\",\n    \"history and mitigation identity matches\",\n    \"history and mitigation catalog is complete\",\n    \"discovery claim is reused with evidence\",\n    \"reported history retains provenance\",\n    \"not sure mitigation remains unknown\",\n    \"open claim creates producer review, not eligibility\",\n    \"reported facts never become verified automatically\"\n  ]\n}"
+}

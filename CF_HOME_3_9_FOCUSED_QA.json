@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-HOME-3.9",
+  "version": "3.20.102",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-HOME-3.9\",\n  \"pass\": true,\n  \"checks\": 21,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-producer-quote-package.js exists\",\n    \"CF_HOME_3_9_PRODUCER_PACKAGE_CONTRACT.json exists\",\n    \"assets/js/pvx-producer-quote-package.js includes normalizedQuoteInputs\",\n    \"assets/js/pvx-producer-quote-package.js includes sourceLabels\",\n    \"assets/js/pvx-producer-quote-package.js includes conflictQueue\",\n    \"assets/js/pvx-producer-quote-package.js includes missingInformationQueue\",\n    \"assets/js/pvx-producer-quote-package.js includes carrierRequirementReviewList\",\n    \"assets/js/pvx-producer-quote-package.js includes copyableValues\",\n    \"assets/js/pvx-producer-quote-package.js includes printableWorksheet\",\n    \"assets/js/pvx-producer-quote-package.js includes quoteStartStatus\",\n    \"assets/js/pvx-producer-quote-package.js includes producerNotes\",\n    \"assets/js/pvx-producer-quote-package.js includes duplicateQuoteEngineCreated:false\",\n    \"producer package identity matches\",\n    \"normalized values and sources stay aligned\",\n    \"conflict queue preserves competing evidence\",\n    \"missing information remains an explicit queue\",\n    \"producer aids are complete\",\n    \"quote status updates without rating\",\n    \"no duplicate production engine or commercial conclusion exists\",\n    \"all roadmap outputs are delivered\"\n  ]\n}"
+}

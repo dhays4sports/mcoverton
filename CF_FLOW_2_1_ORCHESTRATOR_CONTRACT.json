@@ -1,0 +1,1 @@
+{"id":"coveragefit-multipath-orchestrator-v1","sprint":"CF-FLOW-2.1","supports":["snapshot_only","home_profile_only","current_policy_only","both_paths","either_order","continue_later","producer_assisted"],"accountRequired":false,"preciseResume":true,"snapshotRemainsAvailable":true,"pathIndependence":true}

@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-HOME-3.4",
+  "version": "3.20.97",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-HOME-3.4\",\n  \"pass\": true,\n  \"checks\": 17,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-home-updates.js exists\",\n    \"CF_HOME_3_4_UPDATES_CONTRACT.json exists\",\n    \"assets/js/pvx-home-updates.js includes You mentioned making meaningful improvements\",\n    \"assets/js/pvx-home-updates.js includes roof\",\n    \"assets/js/pvx-home-updates.js includes plumbing\",\n    \"assets/js/pvx-home-updates.js includes electrical\",\n    \"assets/js/pvx-home-updates.js includes hvac\",\n    \"assets/js/pvx-home-updates.js includes high_end_materials\",\n    \"assets/js/pvx-home-updates.js includes depth:1\",\n    \"updates branching identity matches\",\n    \"upgrade evidence unlocks contextual entry\",\n    \"no upgrade evidence creates no repeated question\",\n    \"only selected supported updates create branches\",\n    \"branches stay one level deep and allow uncertainty\",\n    \"normalized updates preserve discovery provenance\",\n    \"all roadmap update areas are present\"\n  ]\n}"
+}

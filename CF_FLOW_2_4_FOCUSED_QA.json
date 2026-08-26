@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-FLOW-2.4",
+  "version": "3.20.112",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-FLOW-2.4\",\n  \"pass\": true,\n  \"checks\": 19,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"server/pvx-notification-orchestrator.mjs exists\",\n    \"CF_FLOW_2_4_NOTIFICATION_CONTRACT.json exists\",\n    \"tests/pvx-notification-orchestrator-qa.mjs exists\",\n    \"server/pvx-notification-orchestrator.mjs includes snapshot_saved\",\n    \"server/pvx-notification-orchestrator.mjs includes contact_requested\",\n    \"server/pvx-notification-orchestrator.mjs includes customer_returned\",\n    \"server/pvx-notification-orchestrator.mjs includes home_profile_ready\",\n    \"server/pvx-notification-orchestrator.mjs includes policy_uploaded\",\n    \"server/pvx-notification-orchestrator.mjs includes coverage_review_ready\",\n    \"server/pvx-notification-orchestrator.mjs includes combined_review_ready\",\n    \"server/pvx-notification-orchestrator.mjs includes missing_information_supplied\",\n    \"server/pvx-notification-orchestrator.mjs includes ownershipPreserved:true\",\n    \"server/pvx-notification-orchestrator.mjs includes dedupeKey\",\n    \"notification contract registers eight events\",\n    \"notification orchestrator QA passes: {\\\"pass\\\":true,\\\"checks\\\":14}\\n\",\n    \"notification semantics preserve ownership\",\n    \"notifications are deduplicated and retryable\",\n    \"customer never receives internal notes\"\n  ]\n}"
+}

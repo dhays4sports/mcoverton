@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-HOME-3.5",
+  "version": "3.20.98",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-HOME-3.5\",\n  \"pass\": true,\n  \"checks\": 19,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-home-features.js exists\",\n    \"CF_HOME_3_5_FEATURES_CONTRACT.json exists\",\n    \"assets/js/pvx-home-features.js includes pool_spa\",\n    \"assets/js/pvx-home-features.js includes solar\",\n    \"assets/js/pvx-home-features.js includes animal\",\n    \"assets/js/pvx-home-features.js includes trampoline\",\n    \"assets/js/pvx-home-features.js includes fireplace_wood_stove\",\n    \"assets/js/pvx-home-features.js includes home_business\",\n    \"assets/js/pvx-home-features.js includes short_term_rental\",\n    \"assets/js/pvx-home-features.js includes acreage\",\n    \"assets/js/pvx-home-features.js includes depth:1\",\n    \"features branching identity matches\",\n    \"all feature and use options are present\",\n    \"none clears conflicting selections\",\n    \"only selected feature follow-ups appear\",\n    \"feature follow-ups remain shallow and uncertainty-safe\",\n    \"feature evidence has customer-reported provenance\",\n    \"contract creates no eligibility outcome\"\n  ]\n}"
+}

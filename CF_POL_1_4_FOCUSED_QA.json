@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-POL-1.4",
+  "version": "3.20.106",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-POL-1.4\",\n  \"pass\": true,\n  \"checks\": 18,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-topic-recommendation-bridge.js exists\",\n    \"CF_POL_1_4_RECOMMENDATION_BRIDGE_CONTRACT.json exists\",\n    \"assets/js/pvx-topic-recommendation-bridge.js includes existing_recommendation_engine\",\n    \"assets/js/pvx-topic-recommendation-bridge.js includes licensed_producer_verified\",\n    \"assets/js/pvx-topic-recommendation-bridge.js includes confirmed_policy_or_quote_evidence_required\",\n    \"assets/js/pvx-topic-recommendation-bridge.js includes actual_recommendation\",\n    \"assets/js/pvx-topic-recommendation-bridge.js includes topicResponsePromoted:false\",\n    \"assets/js/pvx-topic-recommendation-bridge.js includes policyDeficiencyFound:false\",\n    \"assets/js/pvx-topic-recommendation-bridge.js includes advisory-recommendation-anchor-contract.js\",\n    \"recommendation bridge identity matches\",\n    \"discovery topic alone cannot create recommendation\",\n    \"document identified alone is insufficient\",\n    \"unsupported authority fails closed\",\n    \"authorized evidence creates actual recommendation\",\n    \"finding does not claim a policy deficiency\",\n    \"early topic and response semantics remain separate\",\n    \"contract limits recommendation authority\"\n  ]\n}"
+}

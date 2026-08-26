@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-HOME-3.8",
+  "version": "3.20.101",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-HOME-3.8\",\n  \"pass\": true,\n  \"checks\": 18,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"server/pvx-home-checkpoint-core.mjs exists\",\n    \"functions/api/pvx/home-checkpoint.js exists\",\n    \"assets/js/pvx-home-report.js exists\",\n    \"CF_HOME_3_8_REPORT_CONTRACT.json exists\",\n    \"tests/pvx-home-checkpoint-core-qa.mjs exists\",\n    \"server/pvx-home-checkpoint-core.mjs includes checkpointType:'home_profile_ready'\",\n    \"server/pvx-home-checkpoint-core.mjs includes reportRevision:'2H'\",\n    \"server/pvx-home-checkpoint-core.mjs includes immutable:true\",\n    \"server/pvx-home-checkpoint-core.mjs includes producerNextAction\",\n    \"server/pvx-home-checkpoint-core.mjs includes carrierEligibilityDetermined:false\",\n    \"Home report client identity matches\",\n    \"payload uses checkpoint 2H semantics\",\n    \"client cannot convert readiness to eligibility\",\n    \"Home checkpoint server QA passes: {\\\"pass\\\":true,\\\"checks\\\":12}\\n\",\n    \"report contract preserves prior Snapshot\",\n    \"report contains every roadmap addition\",\n    \"report contract denies commercial conclusions\"\n  ]\n}"
+}

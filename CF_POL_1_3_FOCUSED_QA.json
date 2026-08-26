@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-POL-1.3",
+  "version": "3.20.105",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-POL-1.3\",\n  \"pass\": true,\n  \"checks\": 16,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-policy-scored-review.js exists\",\n    \"CF_POL_1_3_SCORED_REVIEW_CONTRACT.json exists\",\n    \"assets/js/pvx-policy-scored-review.js includes meaningful_policy_evidence_required\",\n    \"assets/js/pvx-policy-scored-review.js includes Review Readiness\",\n    \"assets/js/pvx-policy-scored-review.js includes Here is what we could identify\",\n    \"assets/js/pvx-policy-scored-review.js includes scoreFormulaChanged:false\",\n    \"assets/js/pvx-policy-scored-review.js includes personalDiscoveryAffectsScore:false\",\n    \"assets/js/pvx-policy-scored-review.js includes require('./protection-score.js')\",\n    \"scored policy review identity matches\",\n    \"no meaningful evidence means no score\",\n    \"document fact produces confirmation item\",\n    \"adapter preserves exact score engine result\",\n    \"presentation changes but formula does not\",\n    \"discovery is explicitly excluded from score inputs\",\n    \"protected methodology and math remain unchanged by contract\"\n  ]\n}"
+}

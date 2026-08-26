@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-FLOW-2.5",
+  "version": "3.20.113",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-FLOW-2.5\",\n  \"pass\": true,\n  \"checks\": 21,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"server/pvx-progress-center-core.mjs exists\",\n    \"functions/api/pvx/progress.js exists\",\n    \"assets/js/pvx-progress-center.js exists\",\n    \"assets/js/pvx-progress-view.js exists\",\n    \"pvx/progress/index.html exists\",\n    \"CF_FLOW_2_5_PROGRESS_CONTRACT.json exists\",\n    \"tests/pvx-progress-center-core-qa.mjs exists\",\n    \"pvx/progress/index.html includes What is complete\",\n    \"pvx/progress/index.html includes What Dylan received\",\n    \"pvx/progress/index.html includes Your latest report\",\n    \"pvx/progress/index.html includes What happens next\",\n    \"pvx/progress/index.html includes No account is required\",\n    \"server/pvx-progress-center-core.mjs includes optionalRemaining\",\n    \"server/pvx-progress-center-core.mjs includes continueButtons\",\n    \"server/pvx-progress-center-core.mjs includes accountRequired:false\",\n    \"progress center client identity matches\",\n    \"progress center server QA passes: {\\\"pass\\\":true,\\\"checks\\\":12}\\n\",\n    \"progress surface contains all customer needs\",\n    \"secure return needs no account\",\n    \"private producer and file data remain hidden\"\n  ]\n}"
+}

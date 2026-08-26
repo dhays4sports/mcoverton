@@ -1,0 +1,1 @@
+{"id":"coveragefit-producer-checkpoint-notifications-v1","sprint":"CF-FLOW-2.4","events":["snapshot_saved","contact_requested","customer_returned","home_profile_ready","policy_uploaded","coverage_review_ready","combined_review_ready","missing_information_supplied"],"deduplicated":true,"ownershipPreserved":true,"outbox":true,"retryState":true,"customerInternalNotesExposed":false}
