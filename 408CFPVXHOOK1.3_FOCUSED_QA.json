@@ -1,0 +1,14 @@
+{
+  "sprint": "408-CF-PVX-HOOK-1.3",
+  "version": "3.20.168",
+  "release": "16",
+  "pass": true,
+  "focusedQa": "CF_PVX_HOOK_1_3_QA.mjs",
+  "stdout": "408-CF-PVX-HOOK-1.3 QA: PASS",
+  "protectedHashesUnchanged": false,
+  "authorizedProtectedCopyChanges": [
+    "server/sms-conversation-core.mjs",
+    "server/ringcentral-sms-connection-core.mjs"
+  ],
+  "generatedAt": "2026-08-22T00:49:40.954Z"
+}

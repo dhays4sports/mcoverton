@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "contractId": "408farmers-coveragefit-relevance-hook-v1",
+  "integrationRelease": "408-CF-PVX-RELEVANCE-1.0",
+  "coverageFitReceiver": "3.20.191",
+  "promise": "An immediate personal CoverageFit Snapshot before any contact request.",
+  "hookReasons": {
+    "renewal_approaching": {"label": "My renewal is approaching.", "shoppingReason": "renewal_increase", "evidenceOnlyAfterExplicitSelection": true},
+    "premium_increase": {"label": "My price recently changed.", "shoppingReason": "renewal_increase", "evidenceOnlyAfterExplicitSelection": true},
+    "buying_home": {"label": "I’m buying a home.", "shoppingReason": "buying_home", "ownershipDuration": "buying_now", "evidenceOnlyAfterExplicitSelection": true},
+    "nonrenewal_concern": {"label": "I have a nonrenewal concern.", "shoppingReason": "nonrenewal_concern", "evidenceOnlyAfterExplicitSelection": true},
+    "coverage_concern": {"label": "I have a coverage question.", "shoppingReason": "something_else", "evidenceOnlyAfterExplicitSelection": true},
+    "service_concern": {"label": "I want a different service experience.", "shoppingReason": "service_change", "evidenceOnlyAfterExplicitSelection": true},
+    "bundle_review": {"label": "I want to review home and auto together.", "shoppingReason": "something_else", "bundleContext": "home_auto", "evidenceOnlyAfterExplicitSelection": true},
+    "long_relationship": {"label": "I want to keep what works and check the fit.", "shoppingReason": "comparison", "evidenceOnlyAfterExplicitSelection": true},
+    "general_exploration": {"label": "I’m simply exploring.", "shoppingReason": "comparison", "evidenceOnlyAfterExplicitSelection": true}
+  },
+  "attributionOnly": ["route", "campaign", "campaign_zip", "creative", "variant", "profession", "partner", "realtor", "anonymous_referral", "source"],
+  "explicitEvidenceFields": ["customer_selection", "relevance_reason", "customer_words"],
+  "preservedTransport": {"method": "top-level-post", "piiInUrl": false, "hostAware": true, "secureResume": true, "legacyRecovery": true},
+  "preservedRoutes": ["direct_call", "direct_text", "renter", "life", "local", "merchant"],
+  "prohibited": ["qualification", "lead score", "savings promise", "eligibility claim", "urgency", "scarcity", "policy deficiency", "readiness inference", "forced human request into PVX"],
+  "semantics": {"pageContextIsDiscoveryAnswer": false, "campaignContextIsDiscoveryAnswer": false, "professionIsEligibility": false, "selectionIsEvidenceOnlyWhenExplicit": true, "readinessInferred": false, "contactPermissionCreated": false, "protectionScoreChanged": false}
+}

@@ -1,0 +1,21 @@
+{
+  "program": "408FARMERS + CoverageFit Native Web Journey Convergence",
+  "integrationRelease": "408-CF-PVX-WEB-2.5",
+  "coverageFitVersion": "3.20.151",
+  "status": "production_candidate_certified",
+  "liveDeploymentPerformed": false,
+  "sprintsCompleted": 16,
+  "releaseGatesCompleted": [8, 9, 10, 11, 12],
+  "finalArtifacts": {
+    "coverageFit": "CoverageFit_v3.20.151_408CFPVXWEB2.5_PRODUCTION_READY_ROOT_DEPLOYABLE.zip",
+    "farmers408": "408FARMERS_408-CF-PVX-WEB-2.5_PRODUCTION_READY_ROOT_DEPLOYABLE.zip",
+    "programArchive": "408FARMERS_COVERAGEFIT_NATIVE_WEB_CONVERGENCE_RELEASES_8_12_COMPLETE_PROGRAM_ARCHIVE.zip"
+  },
+  "regression": {
+    "coverageFit": { "discovered": 254, "passing": 166, "rawFailures": 88, "newProductFailures": 0 },
+    "farmers408": { "discovered": 178, "passing": 37, "rawFailures": 141, "newProductFailures": 0 }
+  },
+  "protectedHashes": { "coverageFit": 28, "farmers408": 14, "unauthorizedChanges": 0 },
+  "requiredBindings": { "D1": "COVERAGEFIT_DB", "R2": "POLICY_FILES" },
+  "customDomain": "review.408farmers.com"
+}
