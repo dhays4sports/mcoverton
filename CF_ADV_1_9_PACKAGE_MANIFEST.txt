@@ -1,0 +1,22 @@
+CoverageFit v3.20.80 — CF-ADV-1.9 Progressive Discovery Branching
+
+Primary additions:
+- assets/js/advisory-progressive-discovery-branching.js
+- assets/css/advisory-progressive-branching.css
+- CF_ADV_1_9_BRANCHING_CONTRACT.json
+- CF_ADV_1_9_QA.js
+- SPRINT-CF-ADV-1.9.md
+- CF_ADV_1_9_RELEASE_CERTIFICATION.md
+- CF_ADV_1_9_REGRESSION_REPORT.md
+
+Integrated changes:
+- assessment/index.html
+- assets/js/advisory-relationship-discovery.js
+- assets/js/advisory-lifestyle-discovery.js
+- CF-ADV-ROADMAP.md
+- VERSION
+- package.json
+- README.md
+- RELEASE_HIGHLIGHTS.md
+- CHANGELOG.md
+- forward-version QA allowlists only where required by the release bump

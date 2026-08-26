@@ -1,0 +1,9 @@
+CoverageFit 3.20.74
+CF-ADV-1.3 — Recommendation Anchor Contract
+Next: CF-ADV-1.4 — “Why Are We Here?” Opening
+Focused QA: CF_ADV_1_3_QA.js PASS (68 checks)
+Regression: 113/177 passing; 64 pre-existing failures; zero new failing tests
+Authoritative roadmap: CF-ADV-ROADMAP.md
+Contract: CF_ADV_1_3_RECOMMENDATION_ANCHOR_CONTRACT.json
+Release certification: CF_ADV_1_3_RELEASE_CERTIFICATION.md
+Regression report: CF_ADV_1_3_REGRESSION_REPORT.md

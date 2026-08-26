@@ -1,0 +1,27 @@
+{
+  "sprint": "CF-ADV-1.6",
+  "release": "3.20.77",
+  "contractId": "coveragefit-lifestyle-dependency-discovery-v1",
+  "product": "home",
+  "flow": ["advisoryOpening", "advisoryRelationship", "advisoryLifestyle", "assessment"],
+  "questions": {
+    "homeOwnership": ["primary_residence", "not_primary", "unsure", "prefer_not_to_answer"],
+    "residenceTenure": ["under_1", "1_2", "3_5", "6_10", "10_plus", "unsure", "prefer_not_to_answer"],
+    "stayIntent": ["under_2", "2_5", "5_plus", "unsure", "prefer_not_to_answer"],
+    "homeImprovements": ["significant", "some", "none", "unsure", "prefer_not_to_answer"],
+    "householdReliance": ["just_me", "partner", "children", "other_household", "unsure", "prefer_not_to_answer", "other"],
+    "displacementDisruption": ["major", "meaningful", "manageable", "minimal", "unsure", "prefer_not_to_answer"]
+  },
+  "storage": {
+    "householdContext.facts": ["homeOwnership", "residenceTenure", "householdReliance"],
+    "lifestyleDependencies": ["stayIntent", "homeImprovements", "displacementDisruption"],
+    "customerStatements": ["custom household-reliance wording only"]
+  },
+  "guardrails": {
+    "affectsProtectionScore": false,
+    "createsCoverageRecommendations": false,
+    "requiresNamesAgesOrMedicalDetails": false,
+    "outcomeConcernSelectionDeferredTo": "CF-ADV-1.7",
+    "signalsRemainDeterministic": true
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "contractVersion": "1.0.0",
+  "contractId": "coveragefit-advisory-recommendation-anchor-v1",
+  "build": "CF-ADV-1.3",
+  "purpose": "Bridge an already-eligible recommendation topic with evidence-backed customer context to create traceable advisory rationale without creating, removing, or reranking recommendation topics.",
+  "input": {
+    "discoveryProfile": "Normalized CF-ADV-1.1 discovery profile with CF-ADV-1.2 signals when available.",
+    "eligibleRecommendations": "Recommendation topics already generated or eligible under the established CoverageFit recommendation path."
+  },
+  "outputField": "discoveryProfile.recommendationAnchors",
+  "anchorFields": [
+    "recommendationKey",
+    "recommendationSourceId",
+    "recommendationTitle",
+    "personalized",
+    "genericFallback",
+    "supportingSignalKeys",
+    "becauseYouToldUs",
+    "personalMeaning",
+    "whyThisFits",
+    "discussionPrompt",
+    "buyInPrompt",
+    "priceTradeoff",
+    "copyVariants",
+    "evidenceRefs"
+  ],
+  "traceability": {
+    "personalizedBecauseYouToldUsRequiresEvidence": true,
+    "candidateSignalsMayPersonalize": false,
+    "supportingSignalKeysAreStored": true,
+    "customerAndProducerCopyVariantsAreStored": true
+  },
+  "eligibilityPolicy": {
+    "signalAloneCanCreateRecommendation": false,
+    "anchorRecommendationKeyMustExistInSuppliedEligibleSet": true,
+    "topicSpecificSignalMayOverrideGenericTradeoffAsPrimaryRationale": true,
+    "tradeoffSignalMaySupplementTopicSpecificRationale": true
+  },
+  "missingEvidencePolicy": {
+    "genericFallback": true,
+    "fabricatedPersonalization": false,
+    "genericBecauseYouToldUsIsEmpty": true,
+    "existingRecommendationExplanationAndQuestionArePreferred": true
+  },
+  "copyPolicy": {
+    "fearDefaultPersuasion": false,
+    "customerVariant": "Neutral explanation of relevance and discussion framing.",
+    "producerVariant": "Natural because-you-told-me bridge plus bounded buy-in prompt.",
+    "buyInIsNotConsent": true
+  },
+  "protectedBoundaries": {
+    "affectsProtectionScore": false,
+    "affectsEvidenceQuality": false,
+    "createsRecommendationTopics": false,
+    "removesRecommendationTopics": false,
+    "affectsRecommendationRanking": false,
+    "changesCustomerDecision": false,
+    "bindsCoverage": false
+  },
+  "ownership": {
+    "anchorIdPrefix": "cfadv13-",
+    "repeatApplicationReplacesOnlyOwnedAnchors": true,
+    "nonEngineAnchorsArePreserved": true,
+    "recommendationResponsesAreUntouched": true
+  }
+}

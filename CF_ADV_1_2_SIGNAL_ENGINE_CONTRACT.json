@@ -1,0 +1,70 @@
+{
+  "engineVersion": "1.0.0",
+  "engineId": "coveragefit-advisory-signal-engine-v1",
+  "build": "CF-ADV-1.2",
+  "purpose": "Deterministically derive evidence-backed advisory interpretations from explicit discoveryProfile facts without making coverage recommendations or changing Protection Score.",
+  "input": "discoveryProfile",
+  "outputField": "discoveryProfile.customerSignals",
+  "factSignalSeparation": {
+    "directFactsRemainInRawDiscovery": true,
+    "customerSignalsContainDerivedInterpretationsOnly": true,
+    "rawFactsAreNotRewrittenBySignalDerivation": true
+  },
+  "rules": [
+    {
+      "id": "vehicle-dependency",
+      "requires": ["onlyVehicle=yes", "dailyUse=yes"],
+      "activeSignalKey": "vehicleDependency.high",
+      "confidence": 0.98
+    },
+    {
+      "id": "home-commitment",
+      "requires": ["homeOwnership=primaryResidence", "stayIntent=longTerm"],
+      "activeSignalKey": "homeCommitment.high",
+      "confidence": 0.98
+    },
+    {
+      "id": "incumbent-relationship",
+      "requires": ["currentCarrierTenure>=10 years", "likesService=yes"],
+      "activeSignalKey": "incumbentRelationship.strong",
+      "confidence": 0.97
+    },
+    {
+      "id": "tradeoff-preference",
+      "requires": ["primaryPriority is explicitly recognized"],
+      "activeSignalKeys": [
+        "tradeoffPreference.balanced",
+        "tradeoffPreference.price",
+        "tradeoffPreference.protection"
+      ],
+      "confidence": 0.99
+    }
+  ],
+  "conflictPolicy": {
+    "silentOverwrite": false,
+    "conflictingRecognizedEvidenceProducesCandidate": true,
+    "candidateSuffix": ".needsConfirmation",
+    "candidateConfidence": 0.5,
+    "candidateRetainsAllConflictingEvidence": true
+  },
+  "failClosedPolicy": {
+    "missingEvidenceRefsProducesSignal": false,
+    "unrecognizedValuesProduceSignal": false,
+    "incompleteRuleInputsProduceActiveSignal": false
+  },
+  "ownership": {
+    "engineSignalIdPrefix": "cfadv12-",
+    "repeatApplicationReplacesOnlyEngineOwnedSignals": true,
+    "nonEngineSignalsArePreserved": true,
+    "recommendationAnchorsAreUntouched": true,
+    "recommendationResponsesAreUntouched": true
+  },
+  "protectedBoundaries": {
+    "affectsProtectionScore": false,
+    "affectsEvidenceQuality": false,
+    "affectsRecommendationRanking": false,
+    "generatesRecommendationLanguage": false,
+    "generatesRecommendationAnchors": false,
+    "changesCustomerDecision": false
+  }
+}

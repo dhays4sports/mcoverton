@@ -1,0 +1,99 @@
+{
+  "contractId": "coveragefit-advisory-opening-v1",
+  "contractVersion": "1.0.0",
+  "build": "CF-ADV-1.4",
+  "release": "3.20.75",
+  "goal": "Capture why the customer is reviewing and the price/protection priority before substantive coverage questions.",
+  "reasonOptions": [
+    {
+      "key": "price_increase",
+      "label": "My insurance is getting expensive"
+    },
+    {
+      "key": "comparing_options",
+      "label": "I’m comparing options"
+    },
+    {
+      "key": "buying_home",
+      "label": "I’m buying a home"
+    },
+    {
+      "key": "renewal_coming",
+      "label": "My renewal is coming up"
+    },
+    {
+      "key": "unhappy_current",
+      "label": "I’m unhappy with my current company"
+    },
+    {
+      "key": "coverage_check",
+      "label": "I want to make sure I’m properly covered"
+    },
+    {
+      "key": "life_change",
+      "label": "I recently had a life change"
+    },
+    {
+      "key": "other",
+      "label": "Something else"
+    }
+  ],
+  "priorityOptions": [
+    {
+      "key": "price",
+      "label": "Keep my cost down"
+    },
+    {
+      "key": "balance",
+      "label": "Find the right balance"
+    },
+    {
+      "key": "protection",
+      "label": "Protect myself as strongly as practical"
+    },
+    {
+      "key": "unsure",
+      "label": "I’m not sure yet",
+      "explicitUnknown": true
+    }
+  ],
+  "output": {
+    "store": "discoveryProfile",
+    "fields": [
+      "reasonForReview",
+      "primaryPriority",
+      "customerStatements"
+    ],
+    "parallelStoreCreated": false
+  },
+  "traceability": {
+    "directSource": "coveragefit_assessment",
+    "inheritedSource": "408farmers_handoff",
+    "evidenceRequired": true,
+    "rawReasonWordingPreserved": true
+  },
+  "zeroRepeat": {
+    "trustedReasonIsReaskedByDefault": false,
+    "trustedPriorityIsReaskedByDefault": false,
+    "connectedValuesVisible": true,
+    "customerCanCorrect": true
+  },
+  "downstream": {
+    "reviewReasonContextMayUseReason": true,
+    "tradeoffSignalMayUsePriority": true,
+    "createsRecommendationTopics": false
+  },
+  "protectedBoundaries": {
+    "affectsProtectionScore": false,
+    "changesQuestionWeights": false,
+    "changesAnswerImpacts": false,
+    "changesRecommendationGeneration": false,
+    "changesRecommendationRanking": false,
+    "bindingAuthorization": false
+  },
+  "completion": {
+    "requiresReason": true,
+    "requiresPriority": true,
+    "unsurePriorityCountsAsExplicitState": true
+  }
+}

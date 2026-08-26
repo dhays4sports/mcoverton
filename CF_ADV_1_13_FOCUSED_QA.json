@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-ADV-1.13",
+  "version": "3.20.107",
+  "pass": true,
+  "status": 0,
+  "output": "{\n  \"sprint\": \"CF-ADV-1.13\",\n  \"pass\": true,\n  \"checks\": 19,\n  \"details\": [\n    \"capability status is implemented or complete\",\n    \"assets/js/pvx-recommendation-buy-in.js exists\",\n    \"CF_ADV_1_13_BUY_IN_CONTRACT.json exists\",\n    \"assets/js/pvx-recommendation-buy-in.js includes accepted_logic\",\n    \"assets/js/pvx-recommendation-buy-in.js includes needs_explanation\",\n    \"assets/js/pvx-recommendation-buy-in.js includes prefers_savings\",\n    \"assets/js/pvx-recommendation-buy-in.js includes undecided\",\n    \"assets/js/pvx-recommendation-buy-in.js includes recordType:'recommendationResponse'\",\n    \"assets/js/pvx-recommendation-buy-in.js includes topicResponse:false\",\n    \"assets/js/pvx-recommendation-buy-in.js includes finalDecision:false\",\n    \"assets/js/pvx-recommendation-buy-in.js includes bindAuthorization:false\",\n    \"recommendation buy-in identity matches\",\n    \"four protected buy-in states exist\",\n    \"early topic is ineligible for buy-in\",\n    \"actual evidence-backed recommendation captures response\",\n    \"exact customer wording is retained safely\",\n    \"response is not relevance preference decision or authorization\",\n    \"upsert remains stable per recommendation\",\n    \"contract enforces semantic separation\"\n  ]\n}"
+}

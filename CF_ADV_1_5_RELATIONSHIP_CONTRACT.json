@@ -1,0 +1,97 @@
+{
+  "contractId": "coveragefit-current-relationship-discovery-v1",
+  "contractVersion": "1.0.0",
+  "build": "CF-ADV-1.5",
+  "release": "3.20.76",
+  "goal": "Understand the incumbent insurance relationship, what the customer values, what they would change, and what should be preserved without treating loyalty as a defect.",
+  "output": {
+    "store": "discoveryProfile.currentRelationship",
+    "fields": [
+      "carrier",
+      "tenure",
+      "likes",
+      "wouldChange",
+      "mustKeep",
+      "notes"
+    ],
+    "parallelStoreCreated": false
+  },
+  "questions": [
+    {
+      "key": "currentCarrier",
+      "prompt": "Who are you insured with now?",
+      "supportsInheritedValue": true,
+      "supportsUnknown": true,
+      "supportsPreferNotToAnswer": true
+    },
+    {
+      "key": "currentCarrierTenure",
+      "prompt": "How long have you been with your current company?",
+      "supportsInheritedValue": true,
+      "supportsUnknown": true,
+      "supportsPreferNotToAnswer": true
+    },
+    {
+      "key": "currentCarrierLikes",
+      "prompt": "What have you liked about them?",
+      "multiSelect": true,
+      "supportsUnknown": true,
+      "supportsPreferNotToAnswer": true
+    },
+    {
+      "key": "currentCarrierWouldChange",
+      "prompt": "If you could change one thing about your current insurance, what would it be?",
+      "singleSelect": true,
+      "supportsUnknown": true,
+      "supportsPreferNotToAnswer": true
+    },
+    {
+      "key": "currentCarrierMustKeep",
+      "prompt": "What do you definitely want to keep?",
+      "multiSelect": true,
+      "supportsUnknown": true,
+      "supportsPreferNotToAnswer": true
+    }
+  ],
+  "traceability": {
+    "directSource": "coveragefit_assessment",
+    "inheritedSource": "408farmers_handoff",
+    "evidenceRequired": true,
+    "customWordingPreserved": true,
+    "unknownsAreExplicit": true,
+    "preferNotToAnswerIsExplicit": true
+  },
+  "zeroRepeat": {
+    "trustedCarrierIsReaskedByDefault": false,
+    "trustedTenureIsReaskedByDefault": false,
+    "connectedValuesVisible": true,
+    "customerCanCorrect": true
+  },
+  "signalCompatibility": {
+    "mayActivateExistingSignal": "incumbentRelationship.strong",
+    "activationRequires": "at least 10 years of explicit tenure evidence plus an explicit positive service preference",
+    "relationshipDiscoveryCreatesSignalDirectly": false,
+    "candidateOrUnknownValuesDoNotCountAsPositiveEvidence": true
+  },
+  "dontBreakContext": {
+    "likesRepresentWhatWorksToday": true,
+    "mustKeepRepresentsWhatShouldNotBeLost": true,
+    "wouldChangeCanDistinguishPriceServiceCoverageClaimsOrOtherProblem": true,
+    "loyaltyIsNotNegative": true
+  },
+  "protectedBoundaries": {
+    "affectsProtectionScore": false,
+    "changesQuestionWeights": false,
+    "changesAnswerImpacts": false,
+    "createsRecommendationTopics": false,
+    "changesRecommendationRanking": false,
+    "bindingAuthorization": false
+  },
+  "completion": {
+    "requiresCarrierOrExplicitUnknownState": true,
+    "requiresTenureOrExplicitUnknownState": true,
+    "requiresLikesOrExplicitNoneUnknownState": true,
+    "requiresWouldChangeOrExplicitNoneUnknownState": true,
+    "requiresMustKeepOrExplicitNoneUnknownState": true
+  }
+}

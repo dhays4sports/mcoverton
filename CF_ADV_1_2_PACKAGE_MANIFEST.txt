@@ -1,0 +1,6 @@
+CoverageFit 3.20.73
+CF-ADV-1.2 — Discovery Signal Engine
+Next: CF-ADV-1.3 — Recommendation Anchor Contract
+Focused QA: CF_ADV_1_2_QA.js PASS (48 checks)
+Regression: 112/176 passing; 64 pre-existing failures; zero new failing tests
+Authoritative roadmap: CF-ADV-ROADMAP.md

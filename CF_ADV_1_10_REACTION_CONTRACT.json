@@ -1,0 +1,33 @@
+{
+  "id": "coveragefit-customer-language-reaction-v1",
+  "version": "1.0.0",
+  "build": "CF-ADV-1.10",
+  "release": "3.20.81",
+  "goal": "Show customers that CoverageFit heard explicit discovery context before recommendations appear.",
+  "inputs": [
+    "discoveryProfile.outcomeConcerns",
+    "discoveryProfile.customerSignals",
+    "discoveryProfile.primaryPriority",
+    "discoveryProfile.currentRelationship",
+    "discoveryProfile.householdContext",
+    "discoveryProfile.lifestyleDependencies"
+  ],
+  "output": {
+    "store": "transient_customer_acknowledgements",
+    "persisted": false,
+    "max_messages": 2,
+    "personalized_message_requires_evidence": true,
+    "signal_minimum_confidence": 0.9,
+    "neutral_fallback_allowed": true
+  },
+  "boundaries": {
+    "score_formula_changed": false,
+    "recommendation_eligibility_changed": false,
+    "recommendation_ranking_changed": false,
+    "acknowledgement_is_recommendation": false,
+    "acknowledgement_is_consent": false,
+    "fear_language_allowed": false,
+    "scored_question_catalog_changed": false,
+    "signal_rules_changed": false
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "id": "coveragefit-progressive-discovery-branching-v1",
+  "sprint": "CF-ADV-1.9",
+  "version": "1.0.0",
+  "release": "3.20.80",
+  "goal": "Ask fewer, better advisory follow-ups from explicit known facts without changing Protection Score or recommendation eligibility.",
+  "branches": {
+    "preserve_what_works": {
+      "trigger": ["currentCarrierTenure=10_plus", "currentCarrierLikes includes service"],
+      "follow_up": "currentRelationship.mustKeep",
+      "default": "suppressed",
+      "restored_answer_policy": "preserve_and_show"
+    },
+    "meaningful_improvements": {
+      "trigger": ["homeOwnership=primary_residence", "stayIntent=5_plus"],
+      "follow_up": "homeImprovements",
+      "default": "suppressed",
+      "restored_answer_policy": "preserve_and_show"
+    }
+  },
+  "known_fact_suppression": ["reviewReason", "currentCarrier", "currentCarrierTenure"],
+  "boundaries": {
+    "one_follow_up_at_a_time": true,
+    "branch_state_durable": true,
+    "score_formula_changed": false,
+    "scored_question_catalog_changed": false,
+    "recommendation_eligibility_changed": false,
+    "signal_rules_changed": false,
+    "branch_answer_is_consent": false
+  }
+}

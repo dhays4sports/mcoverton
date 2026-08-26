@@ -1,0 +1,42 @@
+{
+  "sprint": "CF-ADV-1.7",
+  "release": "3.20.78",
+  "contractId": "coveragefit-outcome-concern-discovery-v1",
+  "product": "home",
+  "flow": [
+    "advisoryOpening",
+    "advisoryRelationship",
+    "advisoryLifestyle",
+    "advisoryOutcome",
+    "assessment"
+  ],
+  "maxSelections": 2,
+  "choices": [
+    "out_of_pocket",
+    "temporary_displacement",
+    "rebuild_properly",
+    "replace_belongings",
+    "water_loss",
+    "liability_finances",
+    "premium_low",
+    "unsure",
+    "prefer_not_to_answer",
+    "other"
+  ],
+  "exclusiveChoices": [
+    "unsure",
+    "prefer_not_to_answer"
+  ],
+  "storage": {
+    "outcomeConcerns": "ordered selected preferences",
+    "customerStatements": "custom other wording only"
+  },
+  "guardrails": {
+    "affectsProtectionScore": false,
+    "createsCustomerSignals": false,
+    "createsCoverageRecommendations": false,
+    "capturesRecommendationBuyIn": false,
+    "selectionOrderPreserved": true,
+    "customOtherRequiresText": true
+  }
+}

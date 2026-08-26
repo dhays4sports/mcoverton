@@ -1,0 +1,29 @@
+{
+  "id": "coveragefit-conversational-assessment-orchestration-v1",
+  "sprint": "CF-ADV-1.8",
+  "release": "3.20.79",
+  "scope": "home",
+  "principle": "Re-sequence presentation, never scoring semantics.",
+  "chapters": [
+    {"number": 1, "id": "why-reviewing", "title": "Why you’re reviewing", "mode": "discovery"},
+    {"number": 2, "id": "home-household", "title": "Your home and household", "mode": "discovery"},
+    {"number": 3, "id": "depends-matters", "title": "What you depend on / what matters", "mode": "discovery"},
+    {"number": 4, "id": "current-protection", "title": "How your current protection works", "mode": "scored-review"},
+    {"number": 5, "id": "planning-outcomes", "title": "Outcomes worth planning for", "mode": "scored-review"},
+    {"number": 6, "id": "worth-reviewing", "title": "Things worth reviewing", "mode": "scored-review"}
+  ],
+  "scored_question_chapters": {
+    "current-protection": ["dwelling", "extendedReplacement", "ordinanceLaw", "water", "roofTermsReview", "deductible", "personalProperty", "detachedStructuresReview"],
+    "planning-outcomes": ["liability", "poolLiabilityReview", "lossOfUse", "umbrella"],
+    "worth-reviewing": ["lifeEvents", "separatePerils"]
+  },
+  "boundaries": {
+    "score_formula_changed": false,
+    "question_keys_changed": false,
+    "answer_impacts_changed": false,
+    "weights_changed": false,
+    "evidence_semantics_changed": false,
+    "progressive_branching": false,
+    "discovery_is_scoring": false
+  }
+}

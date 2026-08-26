@@ -1,0 +1,45 @@
+{
+  "id": "coveragefit-advisory-results-model-v1",
+  "version": "1.0.0",
+  "build": "CF-ADV-1.11",
+  "release": "3.20.82",
+  "product": "home",
+  "purpose": "Make the customer's advisory context the first results hierarchy while keeping Protection Score as an unchanged supporting review-readiness diagnostic.",
+  "hierarchy": [
+    "why_reviewing",
+    "what_matters_most",
+    "home_household_context",
+    "hardest_outcomes",
+    "strong_starting_points",
+    "worth_discussing",
+    "review_readiness"
+  ],
+  "limits": {
+    "home_context_items": 3,
+    "hardest_outcomes": 2,
+    "strong_starting_points": 3,
+    "worth_discussing_topics": 3
+  },
+  "personalization": {
+    "requires_evidence_for_discovery_claims": true,
+    "unknown_and_privacy_states_fail_closed": true,
+    "legacy_report_derivation_supported": true,
+    "price_priority_is_nonjudgmental": true
+  },
+  "boundaries": {
+    "score_formula_changed": false,
+    "score_number_changed": false,
+    "score_methodology_changed": false,
+    "recommendation_eligibility_changed": false,
+    "recommendation_ranking_changed": false,
+    "advisory_context_is_coverage_finding": false,
+    "advisory_context_is_recommendation": false,
+    "report_access_security_changed": false,
+    "report_ttl_changed": false
+  },
+  "persistence": {
+    "field": "advisoryResults",
+    "derived_from": "completed report + discoveryProfile",
+    "report_view_can_rederive_for_legacy": true
+  }
+}

@@ -1,0 +1,112 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const crypto = require('node:crypto');
+const root = __dirname;
+const read = rel => fs.readFileSync(path.join(root, rel), 'utf8');
+const exists = rel => fs.existsSync(path.join(root, rel));
+const hash = rel => crypto.createHash('sha256').update(fs.readFileSync(path.join(root, rel))).digest('hex');
+const checks=[]; const check=(n,c)=>{assert.ok(c,n);checks.push(n)};
+const version=read('VERSION').trim(); const pkg=JSON.parse(read('package.json'));
+const api=require('./assets/js/advisory-customer-reaction.js');
+const discovery=require('./assets/js/advisory-discovery-contract.js');
+const signals=require('./assets/js/advisory-signal-engine.js');
+const contract=JSON.parse(read('CF_ADV_1_10_REACTION_CONTRACT.json'));
+const html=read('assessment/index.html');
+const js=read('assets/js/advisory-customer-reaction.js');
+const css=read('assets/css/advisory-customer-reaction.css');
+const outcome=read('assets/js/advisory-outcome-discovery.js');
+const assessment=read('assets/js/assessment-engine.js');
+const rec=(value,key,label=value)=>({value,label,source:'coveragefit_assessment',evidenceRefs:[{source:'coveragefit_assessment',key,label:`Evidence for ${key}`} ]});
+check('release remains compatible after 3.20.81',['3.20.81','3.20.82','3.20.83'].includes(version)&&pkg.version===version);
+check('package names customer reaction layer',/Customer Language & Reaction Layer|Your CoverageFit Results Model|Why This Fits You Recommendation Cards/i.test(pkg.description));
+check('runtime exists',exists('assets/js/advisory-customer-reaction.js'));
+check('stylesheet exists',exists('assets/css/advisory-customer-reaction.css'));
+check('contract exists',exists('CF_ADV_1_10_REACTION_CONTRACT.json'));
+check('sprint doc exists',exists('SPRINT-CF-ADV-1.10.md'));
+check('runtime identity stable',api.BUILD==='CF-ADV-1.10'&&api.VERSION==='1.0.0');
+check('runtime contract matches JSON',api.CONTRACT_ID===contract.id);
+check('max two messages',api.MAX_MESSAGES===2&&contract.output.max_messages===2);
+check('high confidence signals only',api.MIN_SIGNAL_CONFIDENCE===0.9&&contract.output.signal_minimum_confidence===0.9);
+check('score boundary explicit',api.boundaries.scoreFormulaChanged===false&&contract.boundaries.score_formula_changed===false);
+check('recommendation eligibility protected',api.boundaries.recommendationEligibilityChanged===false&&contract.boundaries.recommendation_eligibility_changed===false);
+check('recommendation ranking protected',api.boundaries.recommendationRankingChanged===false&&contract.boundaries.recommendation_ranking_changed===false);
+check('acknowledgement not recommendation',api.boundaries.acknowledgementIsRecommendation===false&&contract.boundaries.acknowledgement_is_recommendation===false);
+check('acknowledgement not consent',api.boundaries.acknowledgementIsConsent===false&&contract.boundaries.acknowledgement_is_consent===false);
+check('fear language disallowed',api.boundaries.fearLanguageAllowed===false&&contract.boundaries.fear_language_allowed===false);
+check('personalization requires evidence',api.boundaries.evidenceRequiredForPersonalization===true&&contract.output.personalized_message_requires_evidence===true);
+check('neutral fallback allowed',api.boundaries.neutralFallbackAllowed===true&&contract.output.neutral_fallback_allowed===true);
+
+let profile=discovery.create({product:'home',outcomeConcerns:[rec('out_of_pocket','outcomeConcerns','A major unexpected out-of-pocket expense')]});
+let result=api.derive(profile);
+check('explicit outcome produces acknowledgement',result.messages[0].id==='outcome-out_of_pocket'&&result.messages[0].personalized===true);
+check('explicit outcome carries evidence',result.messages[0].evidenceRefs.length===1);
+check('outcome copy is neutral',/priorities/i.test(result.messages[0].text)&&!/need|must buy|underinsured|lawsuit|danger/i.test(result.messages[0].text));
+
+profile=discovery.create({product:'home',outcomeConcerns:[rec('unsure','outcomeConcerns','I’m not sure yet')]});
+result=api.derive(profile);
+check('unsure does not become personalized claim',result.usedFallback===true&&result.personalizedCount===0);
+profile=discovery.create({product:'home',outcomeConcerns:[rec('prefer_not_to_answer','outcomeConcerns','Prefer not to answer')]});
+result=api.derive(profile);
+check('privacy answer does not become personalized claim',result.usedFallback===true&&result.personalizedCount===0);
+
+profile=discovery.create({product:'home',outcomeConcerns:[{value:'out_of_pocket',label:'A major unexpected out-of-pocket expense',source:'coveragefit_assessment'}]});
+result=api.derive(profile);
+check('missing evidence fails closed',result.usedFallback===true&&result.personalizedCount===0);
+
+profile=discovery.create({product:'home',outcomeConcerns:[rec('other','outcomeConcerns','Being unable to use the home office')]});
+result=api.derive(profile);
+check('customer other language can be reflected back',/home office/i.test(result.messages[0].text)&&result.messages[0].sourceType==='explicit_fact');
+check('customer words remain bounded',result.messages[0].text.length<=420);
+
+profile=discovery.create({product:'home',householdContext:{source:'coveragefit_assessment',facts:[rec('primary_residence','homeOwnership','Primary home')]},lifestyleDependencies:[rec('5_plus','stayIntent','5+ years / long term')]});
+profile=signals.apply(profile); result=api.derive(profile);
+check('active home commitment can be acknowledged',result.messages.some(m=>m.id==='signal-home-commitment'));
+check('home commitment acknowledgement carries signal evidence',result.messages.find(m=>m.id==='signal-home-commitment').evidenceRefs.length>=2);
+
+profile=discovery.create({product:'home',currentRelationship:{source:'coveragefit_assessment',tenure:rec('10 years','currentCarrierTenure','10+ years'),likes:[rec('service','currentCarrierLikes.service','Service / responsiveness')]}});
+profile=signals.apply(profile); result=api.derive(profile);
+check('strong incumbent relationship can be acknowledged',result.messages.some(m=>m.id==='signal-incumbent-relationship'));
+check('incumbent copy respects existing relationship',/worth preserving/i.test(result.messages.find(m=>m.id==='signal-incumbent-relationship').text));
+
+profile=discovery.create({product:'home',primaryPriority:rec('balance','primaryPriority','Find the right balance')}); profile=signals.apply(profile); result=api.derive(profile);
+check('balanced priority can be acknowledged',result.messages.some(m=>/balance between price and protection/i.test(m.text)));
+profile=discovery.create({product:'home',primaryPriority:rec('price','primaryPriority','Keep my cost down')}); profile=signals.apply(profile); result=api.derive(profile);
+check('price priority is not judged',result.messages.some(m=>/keeping cost down matters/i.test(m.text))&&!result.messages.some(m=>/bad|wrong|inadequate/i.test(m.text)));
+profile=discovery.create({product:'home',primaryPriority:rec('protection','primaryPriority','Protect myself as strongly as practical')}); profile=signals.apply(profile); result=api.derive(profile);
+check('protection priority is framed as preference',result.messages.some(m=>/preference in view/i.test(m.text)));
+
+profile=discovery.create({product:'home',outcomeConcerns:[rec('premium_low','outcomeConcerns','Keeping premium low')],primaryPriority:rec('price','primaryPriority','Keep cost down')}); profile=signals.apply(profile); result=api.derive(profile);
+check('duplicate cost acknowledgements are suppressed',result.messages.filter(m=>m.topic==='cost').length===1);
+check('message count never exceeds two',result.messages.length<=2);
+
+profile=discovery.create({product:'home',customerSignals:[{id:'manual-candidate',key:'homeCommitment.high',label:'Candidate',status:'candidate',confidence:.99,source:'coveragefit_assessment',evidenceRefs:[{source:'coveragefit_assessment',key:'stayIntent',label:'Stay'}]}]});
+result=api.derive(profile);
+check('candidate signal is ignored',!result.messages.some(m=>m.id==='signal-home-commitment'));
+profile=discovery.create({product:'home',customerSignals:[{id:'manual-low',key:'homeCommitment.high',label:'Low confidence',status:'active',confidence:.5,source:'coveragefit_assessment',evidenceRefs:[{source:'coveragefit_assessment',key:'stayIntent',label:'Stay'}]}]});
+result=api.derive(profile);
+check('low confidence signal is ignored',!result.messages.some(m=>m.id==='signal-home-commitment'));
+
+check('fallback is neutral',api.derive(discovery.create({product:'home'})).messages[0].fallback===true&&!/gap|risk|need|recommend|should/i.test(api.derive(discovery.create({product:'home'})).messages[0].text));
+check('reaction runtime does not write recommendation anchors',!/recommendationAnchors\s*[:=]/.test(js));
+check('reaction runtime does not write recommendation responses',!/recommendationResponses\s*[:=]/.test(js));
+check('reaction runtime does not import scoring',!/ProtectionScore|protection-score|scoreEvaluation/.test(js));
+check('reaction panel exists before quiz',html.indexOf('id="advisoryReaction"')>0&&html.indexOf('id="advisoryReaction"')<html.indexOf('id="quiz"'));
+check('reaction panel declares non recommendation boundary',html.includes('This is an acknowledgment, not a coverage recommendation.'));
+check('reaction CSS loads',html.includes('/assets/css/advisory-customer-reaction.css'));
+check('reaction runtime loads after discovery modules',html.indexOf('advisory-outcome-discovery.js')<html.indexOf('advisory-customer-reaction.js'));
+check('reaction runtime loads before assessment engine',html.indexOf('advisory-customer-reaction.js')<html.indexOf('assessment-engine.js'));
+check('outcome completion scrolls to reaction when visible',outcome.includes("#advisoryReaction:not([hidden])"));
+check('retake hides stale reaction',assessment.includes('advisoryReaction?.hide?.()'));
+check('no extra required reaction button',!html.includes('id="advisoryReactionContinue"'));
+check('CSS hides reaction when inactive',css.includes('.advisory-reaction[hidden]{display:none}'));
+check('CSS supports reduced motion',css.includes('prefers-reduced-motion'));
+check('Protection Score remains byte-certified',hash('assets/js/protection-score.js')==='0cf3190a5bb99aceb0e527f91268247481fd14e67acd81fb35db3accd8a5f2a8');
+check('Home recommendation rules remain byte-certified',hash('assets/js/home-recommendation-rules.js')==='0c4fb83590a2d0f29803f593a6716ba961c49a651542b74d53e01b9e33df4629');
+check('recommendation engine remains byte-certified',hash('assets/js/recommendation-engine.js')==='0d5973be5455d416c8f2477ce08f327adff0fff91bdb987efe62c6e8e8e6fe18');
+check('legacy Workspace remains byte-certified',hash('assets/js/workspace-data.js')==='8a11fd11fb3e027cfef746f4f9214b9d345c5db49862921dff27bbcfcc49eef2');
+check('contract says scored catalog unchanged',contract.boundaries.scored_question_catalog_changed===false);
+check('contract says signal rules unchanged',contract.boundaries.signal_rules_changed===false);
+check('roadmap marks 1.10 complete',read('CF-ADV-ROADMAP.md').includes('CF-ADV-1.10 implementation status — COMPLETE in v3.20.81'));
+check('roadmap advances to 1.11',read('CF-ADV-ROADMAP.md').includes('Next: `CF-ADV-1.11 — “Your CoverageFit” Results Model`'));
+console.log(`CF-ADV-1.10 QA: ${checks.length}/${checks.length} passed`);

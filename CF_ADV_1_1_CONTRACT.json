@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "1.0",
+  "contractVersion": "1.0.0",
+  "contractId": "coveragefit-advisory-discovery-profile-v1",
+  "build": "CF-ADV-1.1",
+  "purpose": "Durable advisory discovery data boundary parallel to assessment scoring, evidence, recommendation, and consultation state.",
+  "rootField": "discoveryProfile",
+  "requiredTopLevelFields": [
+    "schemaVersion",
+    "contractVersion",
+    "contractId",
+    "build",
+    "product",
+    "createdAt",
+    "updatedAt",
+    "source",
+    "reasonForReview",
+    "currentRelationship",
+    "primaryPriority",
+    "secondaryPriorities",
+    "lifestyleDependencies",
+    "householdContext",
+    "protectionProfile",
+    "outcomeConcerns",
+    "currentCoveragePreferences",
+    "customerStatements",
+    "customerSignals",
+    "recommendationAnchors",
+    "recommendationResponses",
+    "guardrails"
+  ],
+  "semanticLayers": {
+    "rawDiscovery": [
+      "reasonForReview",
+      "currentRelationship",
+      "primaryPriority",
+      "secondaryPriorities",
+      "lifestyleDependencies",
+      "householdContext",
+      "protectionProfile",
+      "outcomeConcerns",
+      "currentCoveragePreferences",
+      "customerStatements"
+    ],
+    "derivedAdvisory": [
+      "customerSignals",
+      "recommendationAnchors"
+    ],
+    "customerReaction": [
+      "recommendationResponses"
+    ]
+  },
+  "sourceTypes": [
+    "408farmers_handoff",
+    "coveragefit_assessment",
+    "coveragefit_consultation",
+    "producer_note",
+    "customer_report",
+    "sms_handoff",
+    "legacy_context",
+    "unknown"
+  ],
+  "signalStatuses": [
+    "candidate",
+    "active",
+    "superseded",
+    "dismissed"
+  ],
+  "recommendationResponseStates": [
+    "accepted_logic",
+    "needs_explanation",
+    "prefers_savings",
+    "undecided"
+  ],
+  "traceability": {
+    "customerStatementsCarrySourceKey": true,
+    "derivedSignalsCarryEvidenceRefs": true,
+    "recommendationAnchorsCarryEvidenceRefs": true,
+    "becauseYouToldUsRequiresEvidence": true
+  },
+  "transport": {
+    "408farmersToAssessment": "Existing reviewContext/currentCarrier fields are normalized into discoveryProfile only when already present; no new handoff fields are required by CF-ADV-1.1.",
+    "assessmentToReport": "Saved report includes discoveryProfile.",
+    "reportToConsultation": "Consultation records already clone the complete report, preserving discoveryProfile.",
+    "consultationToWorkspace": "Additive CoverageFitAdvisoryWorkspaceData wraps the existing frozen WorkspaceData snapshot and exposes normalized discoveryProfile without modifying the legacy adapter.",
+    "agentGuide": "Contract is available to future Agent Guide 2.0 work; CF-ADV-1.1 does not yet render it."
+  },
+  "scorePolicy": {
+    "affectsQuestionSelection": false,
+    "affectsQuestionWeights": false,
+    "affectsAnswerImpacts": false,
+    "affectsProtectionScore": false,
+    "affectsEvidenceQuality": false,
+    "affectsRecommendationRanking": false
+  },
+  "decisionPolicy": {
+    "recommendationIsCustomerDecision": false,
+    "buyInIsBindingAuthorization": false,
+    "recommendationResponsesChangeCoverage": false,
+    "recommendationResponsesChangeProtectionScore": false
+  },
+  "zeroRepeat": {
+    "preserveExistingTrustedHandoff": true,
+    "doNotReaskKnownFields": true,
+    "sourceAndEvidenceRetained": true
+  }
+}

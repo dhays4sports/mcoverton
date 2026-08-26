@@ -1,0 +1,44 @@
+{
+  "id": "coveragefit-advisory-recommendation-card-v1",
+  "contractVersion": "1.0.0",
+  "build": "CF-ADV-1.12",
+  "release": "3.20.83",
+  "product": "home",
+  "maxCards": 3,
+  "cardAnatomy": [
+    "topic",
+    "fit_status",
+    "because_you_told_us",
+    "what_we_found_or_need_to_verify",
+    "why_dylan_wants_to_review_it",
+    "customer_reaction_controls"
+  ],
+  "traceability": {
+    "becauseYouToldUsRequiresPersonalEvidence": true,
+    "personalEvidenceRefsRequired": true,
+    "assessmentFindingRemainsSeparate": true,
+    "customerPreferenceIsNotPolicyFinding": true,
+    "customerFactIsNotPolicyFinding": true
+  },
+  "policyEvidenceBoundary": {
+    "assessmentResponseIsIssuedPolicyVerification": false,
+    "issuedPolicyDeficiencyConfirmedByCard": false,
+    "coverageChangeRecommendedByCard": false,
+    "licensedVerificationRequired": true
+  },
+  "reactionBoundary": {
+    "controlsVisible": true,
+    "draftOnly": true,
+    "writesRecommendationResponses": false,
+    "persisted": false,
+    "durableCaptureSprint": "CF-ADV-1.13"
+  },
+  "protectedBoundaries": {
+    "affectsProtectionScore": false,
+    "createsRecommendationTopics": false,
+    "affectsRecommendationEligibility": false,
+    "affectsRecommendationRanking": false,
+    "bindsCoverage": false,
+    "changesPrivateReportAccess": false
+  }
+}

@@ -1,0 +1,12 @@
+CoverageFit 3.20.75
+CF-ADV-1.4 — “Why Are We Here?” Opening
+Next: CF-ADV-1.5 — Current Relationship Discovery
+Focused QA: CF_ADV_1_4_QA.js PASS (104 checks)
+Regression: 114/178 passing; 64 pre-existing failures; zero new failing tests
+Authoritative roadmap: CF-ADV-ROADMAP.md
+Contract: CF_ADV_1_4_OPENING_CONTRACT.json
+Sprint record: SPRINT-CF-ADV-1.4.md
+Release certification: CF_ADV_1_4_RELEASE_CERTIFICATION.md
+Regression report: CF_ADV_1_4_REGRESSION_REPORT.md
+Runtime: assets/js/advisory-opening.js
+Presentation: assets/css/advisory-opening.css

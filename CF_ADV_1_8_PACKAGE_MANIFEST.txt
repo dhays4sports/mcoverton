@@ -1,0 +1,31 @@
+CoverageFit v3.20.79 — CF-ADV-1.8 Conversational Assessment Orchestration
+
+Primary runtime additions:
+- assets/js/advisory-assessment-orchestration.js
+- assets/css/advisory-assessment-orchestration.css
+
+Primary runtime integration:
+- assessment/index.html
+- assets/js/assessment-engine.js
+
+Sprint contracts / certification:
+- CF_ADV_1_8_ORCHESTRATION_CONTRACT.json
+- CF_ADV_1_8_QA.js
+- SPRINT-CF-ADV-1.8.md
+- CF_ADV_1_8_REGRESSION_REPORT.md
+- CF_ADV_1_8_RELEASE_CERTIFICATION.md
+- CF-ADV-ROADMAP.md
+
+Release metadata:
+- VERSION
+- package.json
+- README.md
+- CHANGELOG.md
+- RELEASE_HIGHLIGHTS.md
+
+Forward-version QA allowlists were extended only for suites already green on v3.20.78.
+Protected runtime files remain byte-identical to v3.20.78:
+- assets/js/protection-score.js
+- assets/js/home-recommendation-rules.js
+- assets/js/recommendation-engine.js
+- assets/js/workspace-data.js
