@@ -1,0 +1,7 @@
+{
+  "sprint": "CF-PVX-READY-LIVE-2.1",
+  "version": "3.20.189",
+  "pass": true,
+  "checks": 25,
+  "covered": ["explicit return reasons", "truthful delta", "exact-stage resume", "idempotency", "no duplicate lead", "no duplicate contact plan", "optional readiness refresh", "contextual optional scope"]
+}

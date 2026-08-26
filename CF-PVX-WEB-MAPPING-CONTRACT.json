@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0",
+  "contractId": "408farmers-coveragefit-native-web-mapping-v1",
+  "build": "408-CF-PVX-WEB-1.0",
+  "entryTypes": ["homepage", "home", "buyer", "home_auto", "professional", "flyer", "qr", "neighbor", "ai_caller", "direct", "legacy_recovery"],
+  "provenance": {
+    "pageRoute": "acquisition-context-only",
+    "campaign": "attribution-only",
+    "customerSelection": "customer-reported",
+    "address": "customer-reported-until-confirmed",
+    "propertySource": "source-reported-until-customer-confirmed",
+    "producerVerification": "producer-verified-only"
+  },
+  "consent": {
+    "knownContact": "prefill-only",
+    "snapshotSave": "report-save-only",
+    "contactRequest": "explicit-separate-action",
+    "sms": "explicit-or-existing-authoritative-sms-record",
+    "call": "explicit-separate",
+    "email": "explicit-separate"
+  },
+  "identity": {
+    "automaticMergeByPhoneOrEmail": false,
+    "deterministicLinkRequired": true,
+    "conflictBehavior": "ask-once",
+    "unknownBehavior": "preserve-unknown"
+  },
+  "legacy": {
+    "newHomeownerTrafficMayEnterAssessment": false,
+    "legacySessionsRemainRecoverable": true,
+    "historicalReportsRemainReadable": true,
+    "legacyHandoffAcceptedForRecoveryOnly": true
+  },
+  "semanticBoundaries": {
+    "campaignContextIsDiscoveryAnswer": false,
+    "pageRouteIsDiscoveryAnswer": false,
+    "advisoryReviewTopicIsRecommendation": false,
+    "topicResponseIsRecommendationResponse": false,
+    "snapshotSavedIsContactPermission": false,
+    "discoveryAffectsProtectionScore": false,
+    "occupationProvesEligibility": false,
+    "quoteReadinessIsCarrierEligibility": false,
+    "recommendationBuyInIsBindingAuthorization": false
+  }
+}
+

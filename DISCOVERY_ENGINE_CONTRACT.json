@@ -1,0 +1,20 @@
+{
+  "contractId": "coveragefit-displacement-discovery-v1",
+  "build": "CF-DISP-DISCOVERY-1.0",
+  "provider": "Brave Search API",
+  "endpoint": "https://api.search.brave.com/res/v1/web/search",
+  "publicIndexedOnly": true,
+  "privatePlatformAccess": false,
+  "autoPosting": false,
+  "humanApprovalRequired": true,
+  "defaultSchedule": {
+    "cronUtc": ["15 15 * * *", "15 20 * * *", "15 1 * * *"],
+    "approxPacificDuringPDT": ["08:15", "13:15", "18:15"],
+    "sweepsPerDay": 3
+  },
+  "budget": {"queriesPerSweep":8,"maxResultsPerQuery":8,"monthlyRequestLimit":900,"theoretical31DayScheduledRequests":744},
+  "storage": {"table":"pvx_records","opportunities":"outreach/opportunities/","runs":"outreach/discovery/runs/","usage":"outreach/discovery/usage/"},
+  "dedupe": {"canonicalizeUrl":true,"hash":"SHA-256","trackingParametersRemoved":true},
+  "classification": {"automaticPaidAI":false,"fallbackRules":true,"minimumDiscussionScore":38,"relationshipResultsCappedPerQuery":3},
+  "sources": {"reddit":"public/indexed only","nextdoor":"public/indexed only","facebook":"public/indexed only","publicWeb":"indexed web","hoaPropertyManagement":"public business/site search","realtors":"public business/site search","closedGroups":"manual capture only"}
+}

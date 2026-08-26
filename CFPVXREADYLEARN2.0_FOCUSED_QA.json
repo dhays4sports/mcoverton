@@ -1,0 +1,14 @@
+{
+  "sprint": "CF-PVX-READY-LEARN-2.0",
+  "version": "3.20.194",
+  "status": "pass",
+  "checks": 34,
+  "coverage": [
+    "twelve bounded readiness and producer milestone events",
+    "server and browser schema agreement",
+    "public payload PII rejection",
+    "readiness, desired-action, optional-scope and contact-plan instrumentation",
+    "producer brief view instrumentation",
+    "offline queue and idempotent event storage compatibility"
+  ]
+}

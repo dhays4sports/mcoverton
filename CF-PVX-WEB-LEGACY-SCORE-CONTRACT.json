@@ -1,0 +1,27 @@
+{
+  "contractId": "coveragefit-legacy-assessment-score-migration-v1",
+  "sprint": "408-CF-PVX-WEB-2.2",
+  "version": "3.20.148",
+  "newTraffic": {
+    "entry": "pvx_snapshot_first",
+    "legacyAssessmentDestinationAllowed": false,
+    "contactBeforeSnapshot": false,
+    "protectionScoreBeforePolicyEvidence": false
+  },
+  "legacyCompatibility": {
+    "assessmentRouteRetained": true,
+    "explicitLegacySessionRecovery": true,
+    "historicalReportsRetained": true,
+    "historicalConsultationsRetained": true
+  },
+  "policyReview": {
+    "presentationLabel": "Review Readiness",
+    "meaningfulPolicyEvidenceRequired": true,
+    "personalDiscoveryAffectsScore": false,
+    "methodologyChanged": false
+  },
+  "protectedHashes": {
+    "assets/js/protection-score.js": "0cf3190a5bb99aceb0e527f91268247481fd14e67acd81fb35db3accd8a5f2a8",
+    "home/assessment-config.js": "f4f39337871c7ce6952b77607470dcef963a039b2e467eaedfe5e35b6348553b"
+  }
+}

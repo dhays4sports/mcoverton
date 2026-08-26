@@ -1,0 +1,1 @@
+{"sprint":"CF-PVX-READY-LIVE-2.2","version":"3.20.190","pass":true,"checks":25,"covered":["successful exploring", "successful continue later", "same-session prompt suppression", "campaign disposition separation", "global STOP/DNC authority", "contact cancellation", "channel preference update", "bounded reminders", "anti-pressure copy"]}

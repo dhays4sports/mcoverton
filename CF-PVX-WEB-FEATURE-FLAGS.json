@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0",
+  "build": "408-CF-PVX-WEB-1.2",
+  "flags": {
+    "nativeWebBootstrap": { "default": false, "rollback": "legacy_handoff_recovery_only" },
+    "hostAware408FarmersMode": { "default": true, "hosts": ["review.408farmers.com"] },
+    "nativeEntryComponents": { "default": false, "controlledBy": "408FARMERS route manifest" }
+  }
+}
+
