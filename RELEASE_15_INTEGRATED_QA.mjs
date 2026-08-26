@@ -1,0 +1,8 @@
+import assert from 'node:assert/strict';
+import {projection,accessState} from './server/pvx-progress-center-core.mjs';
+import {applyProposedFacts,lifeEventPlan} from './server/pvx-life-event-core.mjs';
+import {customerDocumentLibrary} from './server/pvx-customer-document-library-core.mjs';
+import {projectCustomerProducerStatus} from './server/pvx-customer-producer-status-core.mjs';
+import {evaluateReengagement} from './server/pvx-reengagement-core.mjs';
+const record={checkpointId:'c1',createdAt:'2026-08-22T00:00:00Z',snapshot:{signalSurface:{topicCount:0}},consent:{sms:true,email:false,call:false,contact:false},leadCheckpoints:[],reportRevisions:[],policyDocuments:[]};
+const first=projection(record,'pvx_secure');assert.equal(first.latestResult.topicCount,0);assert.equal(first.accountRequired,false);assert.ok(first.returnGuidance.sameDevice);assert.ok(first.returnGuidance.crossDevice);assert.equal(accessState({customerAccess:{revoked:true}}),'no_longer_authorized');assert.equal(accessState({producerAssisted:true}),'producer_assisted');assert.equal(lifeEventPlan('renovated').path,'home_profile');assert.equal(applyProposedFacts({x:{value:1,source:'producer_verified'}},{x:{value:2}}).conflicts.length,1);assert.equal(customerDocumentLibrary(record).length,0);assert.equal(projectCustomerProducerStatus({producerStatus:'information_requested'}).state,'information_needed');assert.equal(evaluateReengagement(record,{event:'requested_return',channel:'sms'},new Date('2026-08-22T00:00:00Z')).eligible,true);assert.equal(evaluateReengagement({...record,smsSuppressed:true},{event:'requested_return',channel:'sms'},new Date('2026-08-22T00:00:00Z')).eligible,false);console.log('Release 15 integrated QA: PASS');
