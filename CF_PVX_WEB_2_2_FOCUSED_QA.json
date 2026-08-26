@@ -1,0 +1,15 @@
+{
+  "sprint": "408-CF-PVX-WEB-2.2",
+  "version": "3.20.148",
+  "status": "pass",
+  "focusedChecks": 40,
+  "coverageFitRegression": { "discovered": 251, "passing": 163, "failures": 88, "newProductFailures": 0 },
+  "farmers408Regression": { "discovered": 175, "passing": 34, "rawFailures": 141, "newProductFailures": 0 },
+  "migration": {
+    "newHomeownerTrafficUsesPVX": true,
+    "explicitLegacyRecoveryRetained": true,
+    "meaningfulPolicyEvidenceRequiredForScore": true,
+    "scoreMethodologyChanged": false
+  },
+  "protectedHashes": { "coverageFit": 28, "farmers408": 14, "unauthorizedChanges": 0 }
+}

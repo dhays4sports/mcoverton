@@ -1,0 +1,12 @@
+{
+  "sprint": "408-CF-PVX-WEB-2.5",
+  "version": "3.20.151",
+  "status": "pass",
+  "focusedChecks": 105,
+  "nativeWebSuite": { "coverageFitSprints": 16, "farmers408Sprints": 16, "failed": 0 },
+  "smsPvxSuite": { "sprints": 6, "failed": 0 },
+  "coverageFitRegression": { "discovered": 254, "passing": 166, "failures": 88, "historicalProductFailures": 65, "exactVersionFailures": 23, "newProductFailures": 0 },
+  "farmers408Regression": { "discovered": 178, "passing": 37, "rawFailures": 141, "newProductFailures": 0 },
+  "protectedHashes": { "coverageFit": 28, "farmers408": 14, "unauthorizedChanges": 0 },
+  "liveConfigurationChanged": false
+}

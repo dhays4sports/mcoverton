@@ -1,0 +1,1 @@
+{"sprint":"408-CF-PVX-WEB-1.6","version":"3.20.142","status":"pass","focusedChecks":74,"coverageFitRegression":{"discovered":245,"passing":157,"failures":88,"newProductFailures":0},"farmers408Regression":{"discovered":169,"passing":28,"rawFailures":141,"newProductFailures":0},"protectedHashes":{"coverageFit":28,"farmers408":14,"unauthorizedChanges":0}}

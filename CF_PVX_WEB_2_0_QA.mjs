@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { handlePVXCheckpoint, hashToken } from './server/pvx-checkpoint-core.mjs';
+const records=new Map(),store={async get(k){return records.get(k)||null;},async setJSON(k,v){records.set(k,structuredClone(v));},async delete(k){records.delete(k);}};
+const snapshot={contractId:'coveragefit-discovery-only-snapshot-v1',reportRevision:'1',guardrails:{discoveryOnly:true},whyReviewing:{label:'Buying a home'},wantsToImprove:[],homeContext:[],whatSeemsImportant:[],whatDylanWouldLookAtFirst:[]};
+const req=body=>new Request('https://coveragefit.com/api/pvx/checkpoint',{method:'POST',headers:{Origin:'https://coveragefit.com','Content-Type':'application/json'},body:JSON.stringify(body)});
+const save={action:'create',idempotencyKey:'pvxc_1234567890abcdef',snapshot,consent:{reportSaved:true,contact:false}};
+let response=await handlePVXCheckpoint(req(save),{store,journeyStore:store,now:new Date('2026-08-21T10:00:00Z')});assert.equal(response.status,201);const created=await response.json();assert.equal(created.checkpoint.contactRequested,false);
+response=await handlePVXCheckpoint(req(save),{store,journeyStore:store,now:new Date('2026-08-21T10:01:00Z')});assert.equal(response.status,200);const replay=await response.json();assert.equal(replay.token,created.token);
+response=await handlePVXCheckpoint(req({action:'contact',token:created.token,contact:{name:'Customer',email:'customer@example.com',preferredMethod:'email',requestType:'email'},consent:{reportSaved:true,contact:true,email:true}}),{store,journeyStore:store,now:new Date('2026-08-21T10:02:00Z')});assert.equal(response.status,200);const contacted=await response.json();assert.equal(contacted.token,created.token);assert.equal(contacted.checkpoint.contactRequested,true);
+const record=records.get(`pvx/checkpoint/${await hashToken(created.token)}`);assert.equal(record.leadCheckpoints.length,1);assert.equal(record.consent.email,true);assert.equal(record.authorization.bindAuthorized,false);
+const page=fs.readFileSync('pvx/snapshot/index.html','utf8');assert.ok(page.indexOf('pvxSnapshotTopicsTitle')<page.indexOf('Ask Dylan to contact me'));assert.ok(page.indexOf('Save my Snapshot')<page.indexOf('Ask Dylan to contact me'));assert.doesNotMatch(page,/id="pvxContactRequest" hidden/);assert.match(page,/This is separate from saving your Snapshot/);assert.match(page,/Saving keeps this result available\. It does not ask Dylan to contact you/);
+const client=fs.readFileSync('assets/js/pvx-checkpoint-view.js','utf8');assert.match(client,/contact_only/);assert.match(client,/journeyToken\?'contact':'contact_only'/);assert.match(client,/idempotencyKey:`\$\{api\.idempotencyKey\(\)\}/);
+console.log(JSON.stringify({sprint:'408-CF-PVX-WEB-2.0',pass:true,checks:17}));

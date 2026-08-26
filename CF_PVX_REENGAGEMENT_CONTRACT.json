@@ -1,0 +1,11 @@
+{
+  "contractId": "coveragefit-consent-aware-reengagement-v1",
+  "providerNeutral": true,
+  "liveSends": false,
+  "events": ["requested_return", "missing_customer_information_supplied", "new_report_ready", "dylan_requested_information", "customer_selected_life_event_review"],
+  "channels": ["sms", "email", "call"],
+  "smsStopAuthoritative": true,
+  "manualTakeoverPreserved": true,
+  "frequencyCap": {"maximum": 2, "days": 7},
+  "prohibitedBases": ["inferred_anxiety", "policy_risk", "fabricated_urgency", "unconfirmed_renewal"]
+}

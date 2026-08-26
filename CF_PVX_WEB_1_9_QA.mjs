@@ -1,0 +1,21 @@
+import assert from 'node:assert/strict';
+import { reconcilePvxField, reconcilePvxContexts, authorizeIdentityReconciliation } from './server/pvx-web-reconciliation-core.mjs';
+import { issuePvxWebReturn, consumePvxWebReturn } from './server/pvx-web-journey-core.mjs';
+
+const agreement=reconcilePvxField('address',[{source:'ringcentral_sms',value:'1 Main St',evidenceStatus:'customer_reported'},{source:'408farmers_web',value:'1 Main St',evidenceStatus:'customer_reported'}]);
+assert.equal(agreement.status,'agreement_reused');assert.equal(agreement.askCustomer,false);
+const trusted=reconcilePvxField('roofAge',[{source:'property_intelligence',value:'unknown',evidenceStatus:'public_reported'},{source:'producer_verification',value:'5 years',evidenceStatus:'producer_verified'}]);
+assert.equal(trusted.status,'trusted_confirmation_updated');assert.equal(trusted.value,'5 years');
+const conflict=reconcilePvxField('occupancy',[{source:'ringcentral_sms',value:'primary',evidenceStatus:'customer_reported'},{source:'408farmers_web',value:'rental',evidenceStatus:'customer_reported'}]);
+assert.equal(conflict.status,'conflict_needs_confirmation');assert.equal(conflict.askCustomer,true);assert.equal(conflict.silentWinner,false);
+assert.equal(reconcilePvxField('occupancy',conflict.history,['occupancy']).askCustomer,false);
+assert.equal(reconcilePvxContexts([{source:'ai_caller',facts:{claims:{value:null,evidenceStatus:'unknown'}}}]).claims.status,'unknown');
+assert.equal(authorizeIdentityReconciliation({phoneMatch:true,emailMatch:true}).merge,false);
+assert.equal(authorizeIdentityReconciliation({webJourneyId:'w',smsJourneyId:'s',bootstrapLinkVerified:true}).merge,true);
+const records=new Map(),store={async get(k){return records.get(k)||null;},async setJSON(k,v){records.set(k,structuredClone(v));},async delete(k){records.delete(k);}};
+const now=new Date('2026-08-21T12:00:00Z'),loaded={token:'pvxw_'+'a'.repeat(43),record:{journeyId:'pvxj_test',currentStage:'discovery_started',expiresAt:'2026-09-01T00:00:00Z'}};
+records.set(await (await import('./server/pvx-web-journey-core.mjs')).pvxWebJourneyKey(loaded.token),loaded.record);
+const access=await issuePvxWebReturn(loaded,{store,now});assert.match(access.url,/\/pvx\/return\/\?return=pvxwr_/);
+const restored=await consumePvxWebReturn(access.token,{store,now});assert.equal(restored.destination,'/pvx/discovery/');
+assert.equal(await consumePvxWebReturn(access.token,{store,now}),null);
+console.log(JSON.stringify({sprint:'408-CF-PVX-WEB-1.9',pass:true,checks:16}));

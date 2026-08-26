@@ -1,0 +1,37 @@
+import assert from 'node:assert/strict';
+import crypto from 'node:crypto';
+import fs from 'node:fs';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+const read = file => fs.readFileSync(file, 'utf8');
+const hash = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+const contract = JSON.parse(read('CF-PVX-WEB-LEGACY-SCORE-CONTRACT.json'));
+const scoredReview = require('./assets/js/pvx-policy-scored-review.js');
+const snapshot = read('assets/js/pvx-snapshot-model.js');
+const policyHtml = read('pvx/policy/index.html');
+
+const version = read('VERSION').trim();
+assert.match(version, /^3\.20\.\d+$/);
+assert.ok(Number(version.split('.')[2]) >= 148);
+assert.equal(JSON.parse(read('package.json')).version, version);
+assert.equal(hash('assets/js/protection-score.js'), contract.protectedHashes['assets/js/protection-score.js']);
+assert.equal(hash('home/assessment-config.js'), contract.protectedHashes['home/assessment-config.js']);
+assert.equal(scoredReview.review({ policyProfile: {} }).scoreAvailable, false);
+assert.equal(scoredReview.review({ policyProfile: {} }).reason, 'meaningful_policy_evidence_required');
+assert.equal(scoredReview.review({ policyProfile: {} }).personalDiscoveryAffectsScore, false);
+const evidence = { propertyCoverage: { dwelling: { source: 'document_identified', value: '$500,000', evidenceRef: 'doc_1' } } };
+const result = scoredReview.review({ policyProfile: evidence });
+assert.equal(result.scoreAvailable, true);
+assert.equal(result.presentationLabel, 'Review Readiness');
+assert.equal(result.meaningfulPolicyEvidence, true);
+assert.equal(result.scoreFormulaChanged, false);
+assert.equal(result.personalDiscoveryAffectsScore, false);
+assert.match(snapshot, /protectionScoreCreated:false/);
+assert.match(snapshot, /policyFindings:\[\],recommendations:\[\]/);
+assert.match(policyHtml, /pvx-policy-intake\.js/);
+assert.equal(fs.existsSync('assets/js/pvx-policy-scored-review.js'), true);
+assert.equal(fs.existsSync('assessment/index.html'), true);
+assert.equal(contract.newTraffic.legacyAssessmentDestinationAllowed, false);
+assert.equal(contract.legacyCompatibility.historicalReportsRetained, true);
+console.log(JSON.stringify({ sprint: '408-CF-PVX-WEB-2.2', pass: true, checks: 18 }));

@@ -1,0 +1,11 @@
+{
+  "sprint": "408-CF-PVX-WEB-2.3",
+  "version": "3.20.149",
+  "status": "pass",
+  "focusedChecks": 67,
+  "essentialSourceBytes": 43589,
+  "coverageFitRegression": { "discovered": 252, "passing": 164, "failures": 88, "newProductFailures": 0 },
+  "farmers408Regression": { "discovered": 176, "passing": 35, "rawFailures": 141, "newProductFailures": 0 },
+  "browserRuntime": { "available": false, "reason": "Playwright API is installed but its browser binary is not present; static, model and extracted-package gates are authoritative for this offline candidate." },
+  "protectedHashes": { "coverageFit": 28, "farmers408": 14, "unauthorizedChanges": 0 }
+}

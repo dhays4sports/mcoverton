@@ -1,0 +1,10 @@
+{
+  "sprint": "408-CF-PVX-WEB-2.4",
+  "version": "3.20.150",
+  "status": "pass",
+  "focusedChecks": 55,
+  "coverageFitRegression": { "discovered": 253, "passing": 165, "failures": 88, "newProductFailures": 0 },
+  "farmers408Regression": { "discovered": 177, "passing": 36, "rawFailures": 141, "newProductFailures": 0 },
+  "boundaries": { "piiInContinuationUrl": false, "silentIdentityMerge": false, "saveEqualsContact": false, "discoveryAffectsScore": false, "authorizationToBind": false },
+  "protectedHashes": { "coverageFit": 28, "farmers408": 14, "unauthorizedChanges": 0 }
+}

@@ -1,0 +1,2 @@
+{"sprint":"408-CF-PVX-WEB-1.1","version":"3.20.137","status":"pass","focusedChecks":15,"security":{"originRestricted":true,"rateLimited":true,"idempotent":true,"httpOnlyResume":true,"piiInUrl":false},"protectedHashes":{"checked":28,"unchanged":28}}
+

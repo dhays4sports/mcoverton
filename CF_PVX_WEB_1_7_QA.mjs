@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict';
+import path from 'node:path';
+import { pathToFileURL, fileURLToPath } from 'node:url';
+import { mapWebToPvx } from './server/web-pvx-mapping-core.mjs';
+
+const root = path.dirname(fileURLToPath(import.meta.url));
+const farmersRoot = process.env.FARMERS408_ROOT || path.resolve(root, '../408farmers');
+const mod = await import(pathToFileURL(path.join(farmersRoot, 'shared/pvx-native-entry.js')));
+const api = mod.default || globalThis.Farmers408PVXNativeEntry;
+assert.equal(api.entryType('/home/qr/94539/rate/'), 'qr');
+assert.equal(api.entryType('/home/campaign/95112/fit/'), 'flyer');
+assert.deepEqual(api.routeCampaign('/home/qr/94539/rate/'), { channel:'qr', zip:'94539', variant:'rate', id:'home_94539_rate' });
+const location = { pathname:'/home/qr/94539/rate/', search:'?utm_source=mail' };
+const context = api.context(location);
+assert.equal(context.campaign_zip, '94539');
+assert.equal(context.campaign_variant, 'rate');
+assert.equal(context.creative, 'qr');
+const mapped = mapWebToPvx({ ...context, customer_selection:'start_snapshot' });
+assert.equal(mapped.attribution.campaignZip, '94539');
+assert.equal(mapped.attribution.campaignVariant, 'rate');
+assert.deepEqual(mapped.discovery.answers, {});
+assert.equal(mapped.semantics.campaignContextIsDiscoveryAnswer, false);
+console.log(JSON.stringify({ sprint:'408-CF-PVX-WEB-1.7', pass:true, checks:11 }));

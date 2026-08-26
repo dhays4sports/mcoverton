@@ -1,0 +1,50 @@
+{
+  "id": "coveragefit-pvx-consumer-experience-foundation-v1",
+  "sprint": "CF-PVX-UX-1.0",
+  "version": "1.0.0",
+  "featureFlag": "cf_pvx_consumer_experience",
+  "route": "/pvx/?preview=1",
+  "productionDefault": false,
+  "migration": {
+    "legacyAssessmentRoutePreserved": true,
+    "businessLogicDuplicated": false,
+    "protectedAdvisoryEnginesChanged": false,
+    "rollbackBaseline": "3.20.83"
+  },
+  "components": [
+    "single-question-shell",
+    "single-choice-card",
+    "multi-select-card",
+    "confirmation-card",
+    "address-entry",
+    "inline-help",
+    "micro-feedback",
+    "human-progress",
+    "loading-state",
+    "recoverable-error-state",
+    "secure-resume-boundary",
+    "reduced-motion-transition"
+  ],
+  "interaction": {
+    "onePrimaryDecisionPerScreen": true,
+    "singleChoiceAutoAdvance": true,
+    "multiSelectRequiresContinue": true,
+    "minimumTouchTargetPx": 44,
+    "minimumMobileInputFontPx": 16,
+    "keyboardSupported": true,
+    "screenReaderSemantics": true,
+    "backNavigation": true,
+    "automaticLocalPersistence": true,
+    "resumeTtlDays": 7,
+    "exactStepResume": true,
+    "reducedMotionSupported": true
+  },
+  "boundaries": {
+    "createsRecommendation": false,
+    "createsReviewTopic": false,
+    "createsProtectionScore": false,
+    "collectsContact": false,
+    "evaluatesEligibility": false,
+    "bindsCoverage": false
+  }
+}
